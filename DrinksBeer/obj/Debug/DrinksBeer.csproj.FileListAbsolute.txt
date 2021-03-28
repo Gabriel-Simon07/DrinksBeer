@@ -1,0 +1,11 @@
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\bin\Debug\DrinksBeer.exe.config
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\bin\Debug\DrinksBeer.exe
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\bin\Debug\DrinksBeer.pdb
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.csprojAssemblyReference.cache
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.Form1.resources
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.Models.telaCadastroUsuario.resources
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.Properties.Resources.resources
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.csproj.GenerateResource.cache
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.exe
+C:\Users\Gabriel\source\repos\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.pdb
