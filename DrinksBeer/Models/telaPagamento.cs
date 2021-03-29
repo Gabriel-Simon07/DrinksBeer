@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace DrinksBeer.Models
 {
@@ -21,6 +22,16 @@ namespace DrinksBeer.Models
         {
             Visible = false;
             new Form1().Show();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void telaPagamento_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

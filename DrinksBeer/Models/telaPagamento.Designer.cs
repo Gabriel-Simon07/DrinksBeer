@@ -32,15 +32,15 @@
             this.btnFinalizar_pedido = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCancelar_pedido = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnCancelar_pedido = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -86,6 +86,35 @@
             this.groupBox1.Size = new System.Drawing.Size(278, 100);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(47, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(168, 24);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Formas de retirada";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(29, 55);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Entrega em casa";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(159, 55);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Retirada no local";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // btnCancelar_pedido
             // 
@@ -110,33 +139,24 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(29, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Entrega em casa";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(37, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(201, 24);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Formas de pagamento";
             // 
-            // button2
+            // button5
             // 
-            this.button2.Location = new System.Drawing.Point(159, 55);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Retirada no local";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 24);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Formas de retirada";
+            this.button5.Location = new System.Drawing.Point(191, 41);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "À vista";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -155,25 +175,6 @@
             this.button4.TabIndex = 8;
             this.button4.Text = "Crédito";
             this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(191, 41);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "À vista";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 24);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Formas de pagamento";
             // 
             // label4
             // 
@@ -200,6 +201,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "telaPagamento";
             this.Text = "telaPagamento";
+            this.Load += new System.EventHandler(this.telaPagamento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

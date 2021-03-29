@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using DrinksBeer.Models;
 
 namespace DrinksBeer.Models
 {
     public partial class telaCadastroUsuario : Form
     {
+        private MySqlConnection mConn;
+        private MySqlDataAdapter mAdapter;
+        private DataSet mDataSet;
+
         public telaCadastroUsuario()
         {
             InitializeComponent();
