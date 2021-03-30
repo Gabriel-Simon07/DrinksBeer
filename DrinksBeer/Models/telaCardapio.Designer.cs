@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbmNao_alcoolicos = new System.Windows.Forms.ComboBox();
+            this.cmbAlcoolicos = new System.Windows.Forms.ComboBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar_cardapio = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -43,36 +45,81 @@
             this.btnAlterar_pedido = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbmNao_alcoolicos);
+            this.groupBox1.Controls.Add(this.cmbAlcoolicos);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(52, 114);
+            this.groupBox1.Location = new System.Drawing.Point(26, 114);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(355, 232);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // textBox1
+            // label2
             // 
-            this.textBox1.Location = new System.Drawing.Point(281, 170);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(41, 20);
-            this.textBox1.TabIndex = 0;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(287, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "QTD";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(281, 62);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(41, 20);
+            this.textBox2.TabIndex = 6;
+            // 
+            // cbmNao_alcoolicos
+            // 
+            this.cbmNao_alcoolicos.FormattingEnabled = true;
+            this.cbmNao_alcoolicos.Location = new System.Drawing.Point(127, 169);
+            this.cbmNao_alcoolicos.Name = "cbmNao_alcoolicos";
+            this.cbmNao_alcoolicos.Size = new System.Drawing.Size(130, 21);
+            this.cbmNao_alcoolicos.TabIndex = 5;
+            this.cbmNao_alcoolicos.Text = "Selecione um produto";
+            // 
+            // cmbAlcoolicos
+            // 
+            this.cmbAlcoolicos.FormattingEnabled = true;
+            this.cmbAlcoolicos.Location = new System.Drawing.Point(127, 61);
+            this.cmbAlcoolicos.Name = "cmbAlcoolicos";
+            this.cmbAlcoolicos.Size = new System.Drawing.Size(130, 21);
+            this.cmbAlcoolicos.TabIndex = 4;
+            this.cmbAlcoolicos.Text = "Selecione um produto";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::DrinksBeer.Properties.Resources.refrigerante;
+            this.pictureBox2.Location = new System.Drawing.Point(38, 128);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(71, 85);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DrinksBeer.Properties.Resources.beer;
+            this.pictureBox1.Location = new System.Drawing.Point(37, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(72, 85);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -83,39 +130,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "QTD";
             // 
-            // comboBox1
+            // textBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 61);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(130, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "Selecione um produto";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(127, 169);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(130, 21);
-            this.comboBox2.TabIndex = 5;
-            this.comboBox2.Text = "Selecione um produto";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(281, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(41, 20);
-            this.textBox2.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(287, 154);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "QTD";
+            this.textBox1.Location = new System.Drawing.Point(281, 170);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(41, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // label3
             // 
@@ -142,9 +162,9 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(484, 124);
+            this.dataGridView1.Location = new System.Drawing.Point(438, 114);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 222);
+            this.dataGridView1.Size = new System.Drawing.Size(333, 232);
             this.dataGridView1.TabIndex = 10;
             // 
             // btnFinalizar_cardapio
@@ -194,26 +214,6 @@
             this.label4.Text = "Alterar:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::DrinksBeer.Properties.Resources.refrigerante;
-            this.pictureBox2.Location = new System.Drawing.Point(38, 141);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(71, 74);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DrinksBeer.Properties.Resources.beer;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 85);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // telaCardapio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,11 +231,12 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "telaCardapio";
             this.Text = "telaCardapio";
+            this.Load += new System.EventHandler(this.telaCardapio_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,8 +251,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbmNao_alcoolicos;
+        private System.Windows.Forms.ComboBox cmbAlcoolicos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCancelar_cardapio;
         private System.Windows.Forms.DataGridView dataGridView1;
