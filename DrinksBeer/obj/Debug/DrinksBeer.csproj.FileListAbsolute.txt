@@ -26,7 +26,6 @@ C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\bin\Debug\System.Runtime.CompilerS
 C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\bin\Debug\MySql.Data.xml
 C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.csprojAssemblyReference.cache
 C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.exe.config
-C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.Form1.resources
 C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.Models.telaCadastroUsuario.resources
 C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.Models.telaCardapio.resources
 C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.Models.telaPagamento.resources
@@ -36,3 +35,4 @@ C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.csproj.CoreCo
 C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.csproj.CopyComplete
 C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.exe
 C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.pdb
+C:\Users\Gabriel\source\DrinksBeer\DrinksBeer\obj\Debug\DrinksBeer.Models.Capa.resources

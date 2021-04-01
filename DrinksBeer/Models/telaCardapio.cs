@@ -20,19 +20,19 @@ namespace DrinksBeer.Models
         public telaCardapio()
         {
             InitializeComponent();
-            mostraRegistros();
+            //mostraRegistros();
         }
 
-        private void mostraRegistros()
-        {
-            mDataSet = new DataSet();
-            mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
-            mConn.Open();
-            mAdapter = new MySqlDataAdapter("SELECT * FROM bebidas ORDER BY id", mConn);
-            mAdapter.Fill(mDataSet, "bebidas");
-            cmbAlcoolicos.DataSource = mDataSet;
-            cmbAlcoolicos.DataMember = "bebidas";            
-        }
+        //private void mostraRegistros()
+        //{
+        //    mDataSet = new DataSet();
+        //    mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
+        //    mConn.Open();
+        //    mAdapter = new MySqlDataAdapter("SELECT * FROM bebidas ORDER BY id", mConn);
+        //    mAdapter.Fill(mDataSet, "bebidas");
+        //    cmbAlcoolicos.DataSource = mDataSet;
+        //    cmbAlcoolicos.DataMember = "bebidas";            
+        //}
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -41,7 +41,8 @@ namespace DrinksBeer.Models
 
         private void btnCancelar_pedido_Click(object sender, EventArgs e)
         {
-            
+            Visible = false;
+            new Capa().Show();
         }
 
         private void btnFinalizar_cardapio_Click(object sender, EventArgs e)
@@ -51,6 +52,11 @@ namespace DrinksBeer.Models
         }
 
         private void telaCardapio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
