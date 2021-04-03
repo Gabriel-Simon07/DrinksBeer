@@ -47,7 +47,7 @@ namespace DrinksBeer.Models
 
             mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
             mConn.Open();
-            MySqlCommand command = new MySqlCommand("INSERT INTO cadastro_cliente(nomeCompleto," +
+            MySqlCommand command = new MySqlCommand("INSERT INTO ident_entrega(nomeCompleto," +
                 " telefone, nomeRua, idade, cidade, cep, numeroCasa)" + "VALUES('" + txtNome.Text + "'," +
                 "'" + txtTelefone.Text + "','" + txtRua.Text + "','" + txtIdade.Text + "','" + txtCidade.Text + "'," +
                 "'" + txtCep.Text + "','" + txtNum_casa.Text + "')", mConn);
@@ -68,7 +68,9 @@ namespace DrinksBeer.Models
             Visible = false;
             new Capa().Show();
 
+       
 
+            
 
         }
 

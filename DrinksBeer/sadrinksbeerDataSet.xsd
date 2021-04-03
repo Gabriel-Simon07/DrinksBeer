@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="sadrinksbeerDataSet" targetNamespace="http://tempuri.org/sadrinksbeerDataSet.xsd" xmlns:mstns="http://tempuri.org/sadrinksbeerDataSet.xsd" xmlns="http://tempuri.org/sadrinksbeerDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="sadrinksbeerConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sadrinksbeerConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DrinksBeer.Properties.Settings.GlobalReference.Default.sadrinksbeerConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="bebidasTableAdapter" GeneratorDataComponentClassName="bebidasTableAdapter" Name="bebidas" UserDataComponentName="bebidasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="sadrinksbeerConnectionString (Settings)" DbObjectName="sadrinksbeer.bebidas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `nomeProdutos`, `valorProdutos` FROM `bebidas`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nomeProdutos" DataSetColumn="nomeProdutos" />
+              <Mapping SourceColumn="valorProdutos" DataSetColumn="valorProdutos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="sadrinksbeerDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="sadrinksbeerDataSet" msprop:Generator_UserDSName="sadrinksbeerDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="bebidas" msprop:Generator_TableClassName="bebidasDataTable" msprop:Generator_TableVarName="tablebebidas" msprop:Generator_TablePropName="bebidas" msprop:Generator_RowDeletingName="bebidasRowDeleting" msprop:Generator_RowChangingName="bebidasRowChanging" msprop:Generator_RowEvHandlerName="bebidasRowChangeEventHandler" msprop:Generator_RowDeletedName="bebidasRowDeleted" msprop:Generator_UserTableName="bebidas" msprop:Generator_RowChangedName="bebidasRowChanged" msprop:Generator_RowEvArgName="bebidasRowChangeEvent" msprop:Generator_RowClassName="bebidasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nomeProdutos" msprop:Generator_ColumnVarNameInTable="columnnomeProdutos" msprop:Generator_ColumnPropNameInRow="nomeProdutos" msprop:Generator_ColumnPropNameInTable="nomeProdutosColumn" msprop:Generator_UserColumnName="nomeProdutos" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="valorProdutos" msprop:Generator_ColumnVarNameInTable="columnvalorProdutos" msprop:Generator_ColumnPropNameInRow="valorProdutos" msprop:Generator_ColumnPropNameInTable="valorProdutosColumn" msprop:Generator_UserColumnName="valorProdutos" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

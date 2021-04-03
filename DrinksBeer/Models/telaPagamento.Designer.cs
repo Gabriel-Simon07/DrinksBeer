@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tblSubtotal = new System.Windows.Forms.DataGridView();
             this.btnFinalizar_pedido = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -50,19 +50,19 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblSubtotal)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // tblSubtotal
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(85, 128);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(188, 222);
-            this.dataGridView1.TabIndex = 0;
+            this.tblSubtotal.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tblSubtotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblSubtotal.Location = new System.Drawing.Point(85, 128);
+            this.tblSubtotal.Name = "tblSubtotal";
+            this.tblSubtotal.Size = new System.Drawing.Size(188, 222);
+            this.tblSubtotal.TabIndex = 0;
             // 
             // btnFinalizar_pedido
             // 
@@ -312,11 +312,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFinalizar_pedido);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tblSubtotal);
             this.Name = "telaPagamento";
             this.Text = "telaPagamento";
             this.Load += new System.EventHandler(this.telaPagamento_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblSubtotal)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -328,7 +328,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tblSubtotal;
         private System.Windows.Forms.Button btnFinalizar_pedido;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;

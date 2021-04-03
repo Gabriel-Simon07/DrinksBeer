@@ -20,19 +20,85 @@ namespace DrinksBeer.Models
         public telaCardapio()
         {
             InitializeComponent();
-            //mostraRegistros();
+            mostraAlcoolicos();
+            mostraNao_alcoolicos();
+            mostraCarrinho();
         }
 
-        //private void mostraRegistros()
-        //{
-        //    mDataSet = new DataSet();
-        //    mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
-        //    mConn.Open();
-        //    mAdapter = new MySqlDataAdapter("SELECT * FROM bebidas ORDER BY id", mConn);
-        //    mAdapter.Fill(mDataSet, "bebidas");
-        //    cmbAlcoolicos.DataSource = mDataSet;
-        //    cmbAlcoolicos.DataMember = "bebidas";            
-        //}
+        private void mostraCarrinho()
+        {
+            {
+
+                mDataSet = new DataSet();
+
+                mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
+
+                mConn.Open();
+
+                
+
+                mAdapter = new MySqlDataAdapter("SELECT * FROM PEDIDO", mConn);
+
+                
+
+                mAdapter.Fill(mDataSet, "PEDIDO");
+
+
+
+                tblCarinho.DataSource = mDataSet;
+
+                tblCarinho.DataMember = "PEDIDO";
+
+            }
+        }
+
+        private void mostraNao_alcoolicos()
+        {
+            string dados = ("datasource=localhost;port=3306;username=root");
+            string comando = ("select * from sadrinksbeer.bebidas where vendaLivre = 's';");
+            MySqlConnection conexao = new MySqlConnection(dados);
+            MySqlCommand cmdBanco = new MySqlCommand(comando, conexao);
+            MySqlDataReader ler;
+            try
+            {
+                conexao.Open();
+                ler = cmdBanco.ExecuteReader();
+
+                while (ler.Read())
+                {
+                    string nomeProduto = (ler.GetString("nomeProdutos")) + " - R$ " + (ler.GetString("valorProdutos")) + ",00";
+                    cbmNao_alcoolicos.Items.Add(nomeProduto);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("erro");
+            }
+        }
+        private void mostraAlcoolicos()
+        {
+            string dados = ("datasource=localhost;port=3306;username=root");
+            string comando = ("select * from sadrinksbeer.bebidas where vendaLivre = 'n';");
+            MySqlConnection conexao = new MySqlConnection(dados);
+            MySqlCommand cmdBanco = new MySqlCommand(comando, conexao);
+            MySqlDataReader ler;
+            
+            try
+            {
+                conexao.Open();
+                ler = cmdBanco.ExecuteReader();
+
+                while (ler.Read())
+                {
+                    string nomeProduto =( ler.GetString("nomeProdutos"))+" - R$ "+(ler.GetString("valorProdutos"))+",00";
+                    cmbAlcoolicos.Items.Add(nomeProduto);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("erro");                
+            }
+        }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -53,12 +119,23 @@ namespace DrinksBeer.Models
 
         private void telaCardapio_Load(object sender, EventArgs e)
         {
+           
 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cmbAlcoolicos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAtualiza_lista_Click(object sender, EventArgs e)
+        {
+            mostraCarrinho();
         }
     }
 }

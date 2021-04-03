@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tblPedidos = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblPedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,16 +69,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView1
+            // tblPedidos
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(547, 97);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(202, 324);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.tblPedidos.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tblPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblPedidos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tblPedidos.Location = new System.Drawing.Point(547, 97);
+            this.tblPedidos.Name = "tblPedidos";
+            this.tblPedidos.Size = new System.Drawing.Size(202, 324);
+            this.tblPedidos.TabIndex = 4;
+            this.tblPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label2
             // 
@@ -99,7 +99,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tblPedidos);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -107,7 +107,7 @@
             this.Text = "Capa";
             this.Load += new System.EventHandler(this.Capa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblPedidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,7 +118,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tblPedidos;
         private System.Windows.Forms.Label label2;
     }
 }
