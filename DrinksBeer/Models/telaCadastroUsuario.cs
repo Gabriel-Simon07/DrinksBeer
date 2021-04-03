@@ -76,5 +76,31 @@ namespace DrinksBeer.Models
         {
 
         }
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void txtIdade_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
