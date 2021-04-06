@@ -32,16 +32,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAlcoolicos = new System.Windows.Forms.TextBox();
             this.cbmNao_alcoolicos = new System.Windows.Forms.ComboBox();
             this.cmbAlcoolicos = new System.Windows.Forms.ComboBox();
-            this.bebidasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sadrinksbeerDataSet = new DrinksBeer.sadrinksbeerDataSet();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnAtualiza_lista = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.bebidasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sadrinksbeerDataSet = new DrinksBeer.sadrinksbeerDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar_cardapio = new System.Windows.Forms.Button();
             this.tblCarinho = new System.Windows.Forms.DataGridView();
@@ -50,19 +50,27 @@
             this.label6 = new System.Windows.Forms.Label();
             this.bebidasTableAdapter = new DrinksBeer.sadrinksbeerDataSetTableAdapters.bebidasTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
+            this.sadrinksbeerDataSet1 = new DrinksBeer.sadrinksbeerDataSet1();
+            this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet1TableAdapters.pedidoTableAdapter();
+            this.prodSelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtdSelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valTotProdSelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bebidasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bebidasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCarinho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtAlcoolicos);
             this.groupBox1.Controls.Add(this.cbmNao_alcoolicos);
             this.groupBox1.Controls.Add(this.cmbAlcoolicos);
             this.groupBox1.Controls.Add(this.pictureBox2);
@@ -72,7 +80,7 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(25, 83);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(355, 240);
+            this.groupBox1.Size = new System.Drawing.Size(355, 246);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -96,12 +104,12 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "QTD";
             // 
-            // textBox2
+            // txtAlcoolicos
             // 
-            this.textBox2.Location = new System.Drawing.Point(308, 44);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(41, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtAlcoolicos.Location = new System.Drawing.Point(308, 44);
+            this.txtAlcoolicos.Name = "txtAlcoolicos";
+            this.txtAlcoolicos.Size = new System.Drawing.Size(41, 20);
+            this.txtAlcoolicos.TabIndex = 6;
             // 
             // cbmNao_alcoolicos
             // 
@@ -121,16 +129,6 @@
             this.cmbAlcoolicos.TabIndex = 4;
             this.cmbAlcoolicos.Text = "Selecione um produto";
             this.cmbAlcoolicos.SelectedIndexChanged += new System.EventHandler(this.cmbAlcoolicos_SelectedIndexChanged);
-            // 
-            // bebidasBindingSource
-            // 
-            this.bebidasBindingSource.DataMember = "bebidas";
-            this.bebidasBindingSource.DataSource = this.sadrinksbeerDataSet;
-            // 
-            // sadrinksbeerDataSet
-            // 
-            this.sadrinksbeerDataSet.DataSetName = "sadrinksbeerDataSet";
-            this.sadrinksbeerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pictureBox2
             // 
@@ -180,6 +178,16 @@
             this.textBox1.Size = new System.Drawing.Size(41, 20);
             this.textBox1.TabIndex = 0;
             // 
+            // bebidasBindingSource
+            // 
+            this.bebidasBindingSource.DataMember = "bebidas";
+            this.bebidasBindingSource.DataSource = this.sadrinksbeerDataSet;
+            // 
+            // sadrinksbeerDataSet
+            // 
+            this.sadrinksbeerDataSet.DataSetName = "sadrinksbeerDataSet";
+            this.sadrinksbeerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -203,11 +211,17 @@
             // 
             // tblCarinho
             // 
+            this.tblCarinho.AutoGenerateColumns = false;
             this.tblCarinho.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tblCarinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblCarinho.Location = new System.Drawing.Point(436, 127);
+            this.tblCarinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.prodSelDataGridViewTextBoxColumn,
+            this.qtdSelDataGridViewTextBoxColumn,
+            this.valTotProdSelDataGridViewTextBoxColumn});
+            this.tblCarinho.DataSource = this.pedidoBindingSource;
+            this.tblCarinho.Location = new System.Drawing.Point(386, 127);
             this.tblCarinho.Name = "tblCarinho";
-            this.tblCarinho.Size = new System.Drawing.Size(333, 196);
+            this.tblCarinho.Size = new System.Drawing.Size(408, 196);
             this.tblCarinho.TabIndex = 10;
             this.tblCarinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -256,6 +270,41 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Carrinho";
             // 
+            // sadrinksbeerDataSet1
+            // 
+            this.sadrinksbeerDataSet1.DataSetName = "sadrinksbeerDataSet1";
+            this.sadrinksbeerDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pedidoBindingSource
+            // 
+            this.pedidoBindingSource.DataMember = "pedido";
+            this.pedidoBindingSource.DataSource = this.sadrinksbeerDataSet1;
+            // 
+            // pedidoTableAdapter
+            // 
+            this.pedidoTableAdapter.ClearBeforeFill = true;
+            // 
+            // prodSelDataGridViewTextBoxColumn
+            // 
+            this.prodSelDataGridViewTextBoxColumn.DataPropertyName = "prodSel";
+            this.prodSelDataGridViewTextBoxColumn.HeaderText = "PRODUTO";
+            this.prodSelDataGridViewTextBoxColumn.Name = "prodSelDataGridViewTextBoxColumn";
+            this.prodSelDataGridViewTextBoxColumn.Width = 240;
+            // 
+            // qtdSelDataGridViewTextBoxColumn
+            // 
+            this.qtdSelDataGridViewTextBoxColumn.DataPropertyName = "qtdSel";
+            this.qtdSelDataGridViewTextBoxColumn.HeaderText = "QTD";
+            this.qtdSelDataGridViewTextBoxColumn.Name = "qtdSelDataGridViewTextBoxColumn";
+            this.qtdSelDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // valTotProdSelDataGridViewTextBoxColumn
+            // 
+            this.valTotProdSelDataGridViewTextBoxColumn.DataPropertyName = "valTotProdSel";
+            this.valTotProdSelDataGridViewTextBoxColumn.HeaderText = "SUBTOTAL";
+            this.valTotProdSelDataGridViewTextBoxColumn.Name = "valTotProdSelDataGridViewTextBoxColumn";
+            this.valTotProdSelDataGridViewTextBoxColumn.Width = 75;
+            // 
             // telaCardapio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,11 +324,13 @@
             this.Load += new System.EventHandler(this.telaCardapio_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bebidasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bebidasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCarinho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,12 +352,18 @@
         private System.Windows.Forms.Button btnAtualiza_lista;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtAlcoolicos;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private sadrinksbeerDataSet sadrinksbeerDataSet;
         private System.Windows.Forms.BindingSource bebidasBindingSource;
         private sadrinksbeerDataSetTableAdapters.bebidasTableAdapter bebidasTableAdapter;
         private System.Windows.Forms.Label label4;
+        private sadrinksbeerDataSet1 sadrinksbeerDataSet1;
+        private System.Windows.Forms.BindingSource pedidoBindingSource;
+        private sadrinksbeerDataSet1TableAdapters.pedidoTableAdapter pedidoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prodSelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtdSelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valTotProdSelDataGridViewTextBoxColumn;
     }
 }

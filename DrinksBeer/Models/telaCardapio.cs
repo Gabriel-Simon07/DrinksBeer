@@ -119,7 +119,9 @@ namespace DrinksBeer.Models
 
         private void telaCardapio_Load(object sender, EventArgs e)
         {
-           
+            // TODO: esta linha de código carrega dados na tabela 'sadrinksbeerDataSet1.pedido'. Você pode movê-la ou removê-la conforme necessário.
+            this.pedidoTableAdapter.Fill(this.sadrinksbeerDataSet1.pedido);
+
 
         }
 
@@ -135,6 +137,17 @@ namespace DrinksBeer.Models
 
         private void btnAtualiza_lista_Click(object sender, EventArgs e)
         {
+            mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
+
+            mConn.Open();
+
+            MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(prodSel, qtdSel)"
+                + "VALUES('" + cmbAlcoolicos.Text + "','" + txtAlcoolicos.Text + "')", mConn);
+
+            command.ExecuteNonQuery();
+
+            mConn.Close();
+                       
             mostraCarrinho();
         }
     }
