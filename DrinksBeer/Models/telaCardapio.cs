@@ -37,17 +37,17 @@ namespace DrinksBeer.Models
 
                 
 
-                mAdapter = new MySqlDataAdapter("SELECT * FROM PEDIDO", mConn);
+                mAdapter = new MySqlDataAdapter("SELECT * FROM ITEMPEDIDO WHERE qtd>0", mConn);
 
                 
 
-                mAdapter.Fill(mDataSet, "PEDIDO");
+                mAdapter.Fill(mDataSet, "ITEMPEDIDO");
 
 
 
                 tblCarinho.DataSource = mDataSet;
 
-                tblCarinho.DataMember = "PEDIDO";
+                tblCarinho.DataMember = "ITEMPEDIDO";
 
             }
         }
@@ -55,7 +55,7 @@ namespace DrinksBeer.Models
         private void mostraNao_alcoolicos()
         {
             string dados = ("datasource=localhost;port=3306;username=root");
-            string comando = ("select * from sadrinksbeer.bebidas where vendaLivre = 's';");
+            string comando = ("select * from sadrinksbeer.ITEMPEDIDO where vendaLivre = 's';");
             MySqlConnection conexao = new MySqlConnection(dados);
             MySqlCommand cmdBanco = new MySqlCommand(comando, conexao);
             MySqlDataReader ler;
@@ -66,7 +66,7 @@ namespace DrinksBeer.Models
 
                 while (ler.Read())
                 {
-                    string nomeProduto = (ler.GetString("nomeProdutos")) + " - R$ " + (ler.GetString("valorProdutos")) + ",00";
+                    string nomeProduto = (ler.GetString("nomeProduto")) + " - R$ " + (ler.GetString("valorProduto")) + ",00";
                     cbmNao_alcoolicos.Items.Add(nomeProduto);
                 }
             }
@@ -78,7 +78,7 @@ namespace DrinksBeer.Models
         private void mostraAlcoolicos()
         {
             string dados = ("datasource=localhost;port=3306;username=root");
-            string comando = ("select * from sadrinksbeer.bebidas where vendaLivre = 'n';");
+            string comando = ("select * from sadrinksbeer.itempedido where vendaLivre = 'n';");
             MySqlConnection conexao = new MySqlConnection(dados);
             MySqlCommand cmdBanco = new MySqlCommand(comando, conexao);
             MySqlDataReader ler;
@@ -90,7 +90,7 @@ namespace DrinksBeer.Models
 
                 while (ler.Read())
                 {
-                    string nomeProduto =( ler.GetString("nomeProdutos"))+" - R$ "+(ler.GetString("valorProdutos"))+",00";
+                    string nomeProduto =( ler.GetString("nomeProduto"))+" - R$ "+(ler.GetString("valorProduto"))+",00";
                     cmbAlcoolicos.Items.Add(nomeProduto);
                 }
             }
@@ -118,11 +118,8 @@ namespace DrinksBeer.Models
         }
 
         private void telaCardapio_Load(object sender, EventArgs e)
-        {
-            // TODO: esta linha de código carrega dados na tabela 'sadrinksbeerDataSet1.pedido'. Você pode movê-la ou removê-la conforme necessário.
-            this.pedidoTableAdapter.Fill(this.sadrinksbeerDataSet1.pedido);
-
-
+        {			
+			this.itempedidoTableAdapter.Fill(this.sadrinksbeerDataSet2.itempedido);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -141,14 +138,20 @@ namespace DrinksBeer.Models
 
             mConn.Open();
 
-            MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(prodSel, qtdSel)"
-                + "VALUES('" + cmbAlcoolicos.Text + "','" + txtAlcoolicos.Text + "')", mConn);
-
-            command.ExecuteNonQuery();
+            MySqlCommand command = new MySqlCommand("INSERT INTO ITEMPEDIDO(id_itempedido, nomeProduto, valorProduto," +
+				" vendaLivre, pedido, subtotal, qtd)"
+                + "VALUES('" + txtAlcoolicos.Text + "',)", mConn);
+			
+			command.ExecuteNonQuery();
 
             mConn.Close();
                        
             mostraCarrinho();
         }
-    }
+
+		private void label4_Click_1(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

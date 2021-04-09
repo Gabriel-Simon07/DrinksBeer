@@ -21,36 +21,22 @@ namespace DrinksBeer.Models
         public telaCadastroUsuario()
         {
             InitializeComponent();
-
         }
-
-
-
         private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancelar_cadastro_Click(object sender, EventArgs e)
+        { }
+		private void btnCancelar_cadastro_Click(object sender, EventArgs e)
         {
             Visible = false;
             new telaPagamento().Show();
         }
-
         private void telaCadastroUsuario_Load(object sender, EventArgs e)
+        { }
+		private void btnCadastrar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnCadastrar_Click(object sender, EventArgs e)
-        {
-
             mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
             mConn.Open();
-            MySqlCommand command = new MySqlCommand("INSERT INTO ident_entrega(nomeCompleto," +
-                " telefone, nomeRua, idade, cidade, cep, numeroCasa)" + "VALUES('" + txtNome.Text + "'," +
-                "'" + txtTelefone.Text + "','" + txtRua.Text + "','" + txtIdade.Text + "','" + txtCidade.Text + "'," +
-                "'" + txtCep.Text + "','" + txtNum_casa.Text + "')", mConn);
+            MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(nomeCompleto," +
+                " telefone, nomeRua, dataNascimento, cidade, cep, numeroCasa, bairro)" + "VALUES('" + txtNome.Text + "','" + txtTelefone.Text + "','" + txtRua.Text + "','" + txtIdade.Text + "','" + txtCidade.Text + "','" + txtCep.Text + "','" + txtNum_casa.Text + "','" + txtBairro.Text + "')", mConn);
             command.ExecuteNonQuery();
             mConn.Close();
 
@@ -62,47 +48,20 @@ namespace DrinksBeer.Models
 
             MessageBox.Show($"Pedido {Pedido_data} feito com Sucesso!", "Informação", MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
-
-
-
             Visible = false;
-            new Capa().Show();
-
-       
-
-            
-
+            new Capa().Show();               
         }
-
         private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCpf_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-           
-
-        }
-
-        private void txtIdade_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-    }
+        { }
+		private void txtCpf_TextChanged(object sender, EventArgs e)
+        { }
+		private void txtNome_TextChanged(object sender, EventArgs e)
+        { }
+		private void txtIdade_TextChanged(object sender, EventArgs e)
+        { }
+		private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        { }
+		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        { }
+	}
 }

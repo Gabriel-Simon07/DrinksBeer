@@ -83,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>sadrinksbeerDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="sadrinksbeerDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sadrinksbeerDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Views\Cadastro.cs" />
     <EmbeddedResource Include="Models\Capa.resx">
       <DependentUpon>Capa.cs</DependentUpon>
@@ -136,6 +141,17 @@
     </None>
     <None Include="sadrinksbeerDataSet1.xss">
       <DependentUpon>sadrinksbeerDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="sadrinksbeerDataSet2.xsc">
+      <DependentUpon>sadrinksbeerDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="sadrinksbeerDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sadrinksbeerDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sadrinksbeerDataSet2.xss">
+      <DependentUpon>sadrinksbeerDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
