@@ -22,7 +22,11 @@ namespace DrinksBeer.Models
         {
             InitializeComponent();			
 			mostraPedidos();
-        }		
+			
+        }
+
+		
+
 		private void mostraPedidos()
 		{
 			mDataSet = new DataSet();
@@ -58,9 +62,13 @@ namespace DrinksBeer.Models
 			
 			mAdapter = new MySqlDataAdapter("INSERT INTO itempedido(pedido)" + "VALUES('" + Pedido_data + "')", mConn);
 
-			mConn.Close();
-
 			mAdapter.Fill(mDataSet, "itempedido");
+
+			mConn.Close();
+				
+			
+
+			
 
 			Visible = false;
             new telaCardapio().Show();

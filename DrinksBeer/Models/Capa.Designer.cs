@@ -76,7 +76,7 @@
 			this.tblPedidos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.tblPedidos.Location = new System.Drawing.Point(547, 97);
 			this.tblPedidos.Name = "tblPedidos";
-			this.tblPedidos.Size = new System.Drawing.Size(131, 324);
+			this.tblPedidos.Size = new System.Drawing.Size(179, 324);
 			this.tblPedidos.TabIndex = 4;
 			this.tblPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 

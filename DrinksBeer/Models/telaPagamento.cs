@@ -14,7 +14,11 @@ namespace DrinksBeer.Models
 {
     public partial class telaPagamento : Form
     {
-        public telaPagamento()
+		private MySqlConnection mConn;
+		private MySqlDataAdapter mAdapter;
+		private DataSet mDataSet;
+
+		public telaPagamento()
         {
             InitializeComponent();
         }
@@ -37,10 +41,27 @@ namespace DrinksBeer.Models
 
         private void btnFinalizar_pedido_Click(object sender, EventArgs e)
         {
-            Visible = false;
-            new telaCadastroUsuario().Show();
+			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
 
-            
+			mConn.Open();
+			if (rbEnvio_casa.Checked)
+			{
+				MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(formaRetirada)"
+				+ "VALUES('" + rbEnvio_casa.Text + "')", mConn);
+				command.ExecuteNonQuery();
+			}
+			if (rbRetirada_local.Checked)
+			{
+				MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(formaRetirada)"
+				+ "VALUES('" + rbRetirada_local.Text + "')", mConn);
+				command.ExecuteNonQuery();
+			}			
+
+		
+			mConn.Close();
+
+			Visible = false;
+            new telaCadastroUsuario().Show();            
         }
 
         private void button2_Click(object sender, EventArgs e)

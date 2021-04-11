@@ -30,6 +30,8 @@
         {
 			this.components = new System.ComponentModel.Container();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.button2 = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtAlcoolicos = new System.Windows.Forms.TextBox();
@@ -39,7 +41,7 @@
 			this.btnAtualiza_lista = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtNao_alcoolicos = new System.Windows.Forms.TextBox();
 			this.bebidasBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.sadrinksbeerDataSet = new DrinksBeer.sadrinksbeerDataSet();
 			this.label3 = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.pedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet1TableAdapters.pedidoTableAdapter();
 			this.itempedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet2TableAdapters.itempedidoTableAdapter();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,12 +88,35 @@
 			this.groupBox1.Controls.Add(this.btnAtualiza_lista);
 			this.groupBox1.Controls.Add(this.pictureBox1);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.textBox1);
+			this.groupBox1.Controls.Add(this.txtNao_alcoolicos);
 			this.groupBox1.Location = new System.Drawing.Point(25, 87);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(355, 261);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
+			// 
+			// button2
+			// 
+			this.button2.BackColor = System.Drawing.Color.Red;
+			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button2.Location = new System.Drawing.Point(225, 214);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(40, 39);
+			this.button2.TabIndex = 15;
+			this.button2.Text = "-";
+			this.button2.UseVisualStyleBackColor = false;
+			// 
+			// button3
+			// 
+			this.button3.BackColor = System.Drawing.Color.Green;
+			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button3.Location = new System.Drawing.Point(144, 214);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(40, 39);
+			this.button3.TabIndex = 14;
+			this.button3.Text = "+";
+			this.button3.UseVisualStyleBackColor = false;
+			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
 			// button1
 			// 
@@ -105,6 +128,7 @@
 			this.button1.TabIndex = 13;
 			this.button1.Text = "-";
 			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// label2
 			// 
@@ -182,12 +206,12 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "QTD";
 			// 
-			// textBox1
+			// txtNao_alcoolicos
 			// 
-			this.textBox1.Location = new System.Drawing.Point(303, 187);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(41, 20);
-			this.textBox1.TabIndex = 0;
+			this.txtNao_alcoolicos.Location = new System.Drawing.Point(303, 187);
+			this.txtNao_alcoolicos.Name = "txtNao_alcoolicos";
+			this.txtNao_alcoolicos.Size = new System.Drawing.Size(41, 20);
+			this.txtNao_alcoolicos.TabIndex = 0;
 			// 
 			// bebidasBindingSource
 			// 
@@ -342,28 +366,6 @@
 			// 
 			this.itempedidoTableAdapter.ClearBeforeFill = true;
 			// 
-			// button2
-			// 
-			this.button2.BackColor = System.Drawing.Color.Red;
-			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(225, 214);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(40, 39);
-			this.button2.TabIndex = 15;
-			this.button2.Text = "-";
-			this.button2.UseVisualStyleBackColor = false;
-			// 
-			// button3
-			// 
-			this.button3.BackColor = System.Drawing.Color.Green;
-			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(144, 214);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(40, 39);
-			this.button3.TabIndex = 14;
-			this.button3.Text = "+";
-			this.button3.UseVisualStyleBackColor = false;
-			// 
 			// telaCardapio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,7 +416,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAlcoolicos;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNao_alcoolicos;
         private System.Windows.Forms.Button button1;
         private sadrinksbeerDataSet sadrinksbeerDataSet;
         private System.Windows.Forms.BindingSource bebidasBindingSource;
