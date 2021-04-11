@@ -50,7 +50,7 @@
 			this.txtCpf = new System.Windows.Forms.TextBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.txtBairro = new System.Windows.Forms.TextBox();
-			this.txtIdade = new System.Windows.Forms.TextBox();
+			this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
 			this.SuspendLayout();
 			// 
 			// btnCancelar_cadastro
@@ -245,12 +245,16 @@
 			this.txtBairro.Size = new System.Drawing.Size(241, 20);
 			this.txtBairro.TabIndex = 29;
 			// 
-			// txtIdade
+			// dtpNascimento
 			// 
-			this.txtIdade.Location = new System.Drawing.Point(140, 198);
-			this.txtIdade.Name = "txtIdade";
-			this.txtIdade.Size = new System.Drawing.Size(135, 20);
-			this.txtIdade.TabIndex = 31;
+			this.dtpNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtpNascimento.Location = new System.Drawing.Point(140, 202);
+			this.dtpNascimento.MaxDate = new System.DateTime(2021, 4, 9, 0, 0, 0, 0);
+			this.dtpNascimento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+			this.dtpNascimento.Name = "dtpNascimento";
+			this.dtpNascimento.Size = new System.Drawing.Size(84, 20);
+			this.dtpNascimento.TabIndex = 32;
+			this.dtpNascimento.Value = new System.DateTime(2021, 4, 9, 0, 0, 0, 0);
 			// 
 			// telaCadastroUsuario
 			// 
@@ -258,7 +262,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.txtIdade);
+			this.Controls.Add(this.dtpNascimento);
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.txtBairro);
 			this.Controls.Add(this.label11);
@@ -313,6 +317,6 @@
         private System.Windows.Forms.TextBox txtCpf;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TextBox txtBairro;
-		private System.Windows.Forms.TextBox txtIdade;
+		private System.Windows.Forms.DateTimePicker dtpNascimento;
 	}
 }

@@ -36,17 +36,11 @@ namespace DrinksBeer.Models
             mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
             mConn.Open();
             MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(nomeCompleto," +
-                " telefone, nomeRua, dataNascimento, cidade, cep, numeroCasa, bairro)" + "VALUES('" + txtNome.Text + "','" + txtTelefone.Text + "','" + txtRua.Text + "','" + txtIdade.Text + "','" + txtCidade.Text + "','" + txtCep.Text + "','" + txtNum_casa.Text + "','" + txtBairro.Text + "')", mConn);
+                " telefone, nomeRua, dataNascimento, cidade, cep, numeroCasa, bairro)" + "VALUES('" + txtNome.Text + "','" + txtTelefone.Text + "','" + txtRua.Text + "','" + dtpNascimento.Text + "','" + txtCidade.Text + "','" + txtCep.Text + "','" + txtNum_casa.Text + "','" + txtBairro.Text + "')", mConn);
             command.ExecuteNonQuery();
             mConn.Close();
-
-            string Pedido_data = "";
-            DateTime pedido_data = DateTime.Now;
-            Pedido_data = pedido_data.Year.ToString() + pedido_data.Month.ToString() + pedido_data.Day.ToString()
-                + pedido_data.Hour.ToString() + pedido_data.Minute.ToString() + pedido_data.Second.ToString() +
-                pedido_data.Millisecond.ToString();
-
-            MessageBox.Show($"Pedido {Pedido_data} feito com Sucesso!", "Informação", MessageBoxButtons.OK,
+            
+            MessageBox.Show($"Pedido feito com Sucesso!", "Informação", MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             Visible = false;
             new Capa().Show();               

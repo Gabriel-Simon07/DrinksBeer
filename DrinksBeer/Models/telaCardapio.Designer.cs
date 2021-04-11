@@ -61,6 +61,8 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.pedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet1TableAdapters.pedidoTableAdapter();
 			this.itempedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet2TableAdapters.itempedidoTableAdapter();
+			this.button2 = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,6 +77,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.button2);
+			this.groupBox1.Controls.Add(this.button3);
 			this.groupBox1.Controls.Add(this.button1);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.txtAlcoolicos);
@@ -87,7 +91,7 @@
 			this.groupBox1.Controls.Add(this.textBox1);
 			this.groupBox1.Location = new System.Drawing.Point(25, 87);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(355, 246);
+			this.groupBox1.Size = new System.Drawing.Size(355, 261);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			// 
@@ -95,9 +99,9 @@
 			// 
 			this.button1.BackColor = System.Drawing.Color.Red;
 			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(225, 104);
+			this.button1.Location = new System.Drawing.Point(225, 71);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(63, 48);
+			this.button1.Size = new System.Drawing.Size(40, 38);
 			this.button1.TabIndex = 13;
 			this.button1.Text = "-";
 			this.button1.UseVisualStyleBackColor = false;
@@ -151,9 +155,9 @@
 			// 
 			this.btnAtualiza_lista.BackColor = System.Drawing.Color.Green;
 			this.btnAtualiza_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnAtualiza_lista.Location = new System.Drawing.Point(144, 104);
+			this.btnAtualiza_lista.Location = new System.Drawing.Point(144, 71);
 			this.btnAtualiza_lista.Name = "btnAtualiza_lista";
-			this.btnAtualiza_lista.Size = new System.Drawing.Size(63, 48);
+			this.btnAtualiza_lista.Size = new System.Drawing.Size(40, 38);
 			this.btnAtualiza_lista.TabIndex = 12;
 			this.btnAtualiza_lista.Text = "+";
 			this.btnAtualiza_lista.UseVisualStyleBackColor = false;
@@ -164,7 +168,7 @@
 			this.pictureBox1.Image = global::DrinksBeer.Properties.Resources.beer;
 			this.pictureBox1.Location = new System.Drawing.Point(16, 19);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(72, 85);
+			this.pictureBox1.Size = new System.Drawing.Size(72, 75);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 2;
 			this.pictureBox1.TabStop = false;
@@ -338,6 +342,28 @@
 			// 
 			this.itempedidoTableAdapter.ClearBeforeFill = true;
 			// 
+			// button2
+			// 
+			this.button2.BackColor = System.Drawing.Color.Red;
+			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button2.Location = new System.Drawing.Point(225, 214);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(40, 39);
+			this.button2.TabIndex = 15;
+			this.button2.Text = "-";
+			this.button2.UseVisualStyleBackColor = false;
+			// 
+			// button3
+			// 
+			this.button3.BackColor = System.Drawing.Color.Green;
+			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button3.Location = new System.Drawing.Point(144, 214);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(40, 39);
+			this.button3.TabIndex = 14;
+			this.button3.Text = "+";
+			this.button3.UseVisualStyleBackColor = false;
+			// 
 			// telaCardapio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,5 +431,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn pedidoDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn qtdDataGridViewTextBoxColumn;
+		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button button3;
 	}
 }
