@@ -88,6 +88,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>sadrinksbeerDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Views\Alcoolicos.cs" />
     <Compile Include="Views\Cadastro.cs" />
     <EmbeddedResource Include="Models\Capa.resx">
       <DependentUpon>Capa.cs</DependentUpon>

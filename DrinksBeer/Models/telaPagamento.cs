@@ -55,9 +55,7 @@ namespace DrinksBeer.Models
 				MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(formaRetirada)"
 				+ "VALUES('" + rbRetirada_local.Text + "')", mConn);
 				command.ExecuteNonQuery();
-			}			
-
-		
+			}					
 			mConn.Close();
 
 			Visible = false;

@@ -47,11 +47,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnCancelar_cardapio = new System.Windows.Forms.Button();
 			this.tblCarinho = new System.Windows.Forms.DataGridView();
-			this.nomeProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.valorProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.pedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.qtdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.itempedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.sadrinksbeerDataSet2 = new DrinksBeer.sadrinksbeerDataSet2();
 			this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -63,6 +58,10 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.pedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet1TableAdapters.pedidoTableAdapter();
 			this.itempedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet2TableAdapters.itempedidoTableAdapter();
+			this.nomeBebida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.preco_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,6 +93,7 @@
 			this.groupBox1.Size = new System.Drawing.Size(355, 261);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
+			this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
 			// 
 			// button2
 			// 
@@ -154,6 +154,7 @@
 			this.cbmNao_alcoolicos.Size = new System.Drawing.Size(194, 21);
 			this.cbmNao_alcoolicos.TabIndex = 5;
 			this.cbmNao_alcoolicos.Text = "Selecione um produto";
+			this.cbmNao_alcoolicos.SelectedIndexChanged += new System.EventHandler(this.cbmNao_alcoolicos_SelectedIndexChanged);
 			// 
 			// cmbAlcoolicos
 			// 
@@ -246,51 +247,18 @@
 			// 
 			// tblCarinho
 			// 
-			this.tblCarinho.AutoGenerateColumns = false;
 			this.tblCarinho.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
 			this.tblCarinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.tblCarinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nomeProdutoDataGridViewTextBoxColumn,
-            this.valorProdutoDataGridViewTextBoxColumn,
-            this.pedidoDataGridViewTextBoxColumn,
-            this.subtotalDataGridViewTextBoxColumn,
-            this.qtdDataGridViewTextBoxColumn});
-			this.tblCarinho.DataSource = this.itempedidoBindingSource;
+            this.nomeBebida,
+            this.preco_Produto,
+            this.qtd,
+            this.subtotal});
 			this.tblCarinho.Location = new System.Drawing.Point(386, 127);
 			this.tblCarinho.Name = "tblCarinho";
 			this.tblCarinho.Size = new System.Drawing.Size(408, 196);
 			this.tblCarinho.TabIndex = 10;
 			this.tblCarinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-			// 
-			// nomeProdutoDataGridViewTextBoxColumn
-			// 
-			this.nomeProdutoDataGridViewTextBoxColumn.DataPropertyName = "nomeProduto";
-			this.nomeProdutoDataGridViewTextBoxColumn.HeaderText = "nomeProduto";
-			this.nomeProdutoDataGridViewTextBoxColumn.Name = "nomeProdutoDataGridViewTextBoxColumn";
-			// 
-			// valorProdutoDataGridViewTextBoxColumn
-			// 
-			this.valorProdutoDataGridViewTextBoxColumn.DataPropertyName = "valorProduto";
-			this.valorProdutoDataGridViewTextBoxColumn.HeaderText = "valorProduto";
-			this.valorProdutoDataGridViewTextBoxColumn.Name = "valorProdutoDataGridViewTextBoxColumn";
-			// 
-			// pedidoDataGridViewTextBoxColumn
-			// 
-			this.pedidoDataGridViewTextBoxColumn.DataPropertyName = "pedido";
-			this.pedidoDataGridViewTextBoxColumn.HeaderText = "pedido";
-			this.pedidoDataGridViewTextBoxColumn.Name = "pedidoDataGridViewTextBoxColumn";
-			// 
-			// subtotalDataGridViewTextBoxColumn
-			// 
-			this.subtotalDataGridViewTextBoxColumn.DataPropertyName = "subtotal";
-			this.subtotalDataGridViewTextBoxColumn.HeaderText = "subtotal";
-			this.subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
-			// 
-			// qtdDataGridViewTextBoxColumn
-			// 
-			this.qtdDataGridViewTextBoxColumn.DataPropertyName = "qtd";
-			this.qtdDataGridViewTextBoxColumn.HeaderText = "qtd";
-			this.qtdDataGridViewTextBoxColumn.Name = "qtdDataGridViewTextBoxColumn";
 			// 
 			// itempedidoBindingSource
 			// 
@@ -366,6 +334,29 @@
 			// 
 			this.itempedidoTableAdapter.ClearBeforeFill = true;
 			// 
+			// nomeBebida
+			// 
+			this.nomeBebida.DataPropertyName = "nomeBebida";
+			this.nomeBebida.HeaderText = "NOME DO PRODUTO";
+			this.nomeBebida.Name = "nomeBebida";
+			// 
+			// preco_Produto
+			// 
+			this.preco_Produto.HeaderText = "PREÇO DO PRODUTO";
+			this.preco_Produto.Name = "preco_Produto";
+			// 
+			// qtd
+			// 
+			this.qtd.HeaderText = "QUANTIDADE";
+			this.qtd.Name = "qtd";
+			this.qtd.Width = 85;
+			// 
+			// subtotal
+			// 
+			this.subtotal.HeaderText = "SUBTOTAL";
+			this.subtotal.Name = "subtotal";
+			this.subtotal.Width = 80;
+			// 
 			// telaCardapio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,12 +419,11 @@
 		private sadrinksbeerDataSet2 sadrinksbeerDataSet2;
 		private System.Windows.Forms.BindingSource itempedidoBindingSource;
 		private sadrinksbeerDataSet2TableAdapters.itempedidoTableAdapter itempedidoTableAdapter;
-		private System.Windows.Forms.DataGridViewTextBoxColumn nomeProdutoDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn valorProdutoDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn pedidoDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn qtdDataGridViewTextBoxColumn;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.DataGridViewTextBoxColumn nomeBebida;
+		private System.Windows.Forms.DataGridViewTextBoxColumn preco_Produto;
+		private System.Windows.Forms.DataGridViewTextBoxColumn qtd;
+		private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
 	}
 }
