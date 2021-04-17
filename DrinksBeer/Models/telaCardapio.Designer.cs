@@ -30,9 +30,7 @@
         {
 			this.components = new System.ComponentModel.Container();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtAlcoolicos = new System.Windows.Forms.TextBox();
 			this.cbmNao_alcoolicos = new System.Windows.Forms.ComboBox();
@@ -47,6 +45,12 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnCancelar_cardapio = new System.Windows.Forms.Button();
 			this.tblCarinho = new System.Windows.Forms.DataGridView();
+			this.nomeProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.valorProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.qtdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.itempedidoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.sadrinksbeerDataSet3 = new DrinksBeer.sadrinksbeerDataSet3();
 			this.itempedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.sadrinksbeerDataSet2 = new DrinksBeer.sadrinksbeerDataSet2();
 			this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,34 +62,27 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.pedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet1TableAdapters.pedidoTableAdapter();
 			this.itempedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet2TableAdapters.itempedidoTableAdapter();
-			this.sadrinksbeerDataSet3 = new DrinksBeer.sadrinksbeerDataSet3();
-			this.itempedidoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.itempedidoTableAdapter1 = new DrinksBeer.sadrinksbeerDataSet3TableAdapters.itempedidoTableAdapter();
-			this.nomeProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.valorProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.qtdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.valorFinal = new System.Windows.Forms.Label();
 			this.labelTotal = new System.Windows.Forms.Label();
+			this.button4 = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bebidasBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.tblCarinho)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.button2);
 			this.groupBox1.Controls.Add(this.button3);
-			this.groupBox1.Controls.Add(this.button1);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.txtAlcoolicos);
 			this.groupBox1.Controls.Add(this.cbmNao_alcoolicos);
@@ -102,40 +99,17 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
 			// 
-			// button2
-			// 
-			this.button2.BackColor = System.Drawing.Color.Red;
-			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(225, 214);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(40, 39);
-			this.button2.TabIndex = 15;
-			this.button2.Text = "-";
-			this.button2.UseVisualStyleBackColor = false;
-			// 
 			// button3
 			// 
 			this.button3.BackColor = System.Drawing.Color.Green;
 			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(144, 214);
+			this.button3.Location = new System.Drawing.Point(184, 214);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(40, 39);
 			this.button3.TabIndex = 14;
 			this.button3.Text = "+";
 			this.button3.UseVisualStyleBackColor = false;
 			this.button3.Click += new System.EventHandler(this.button3_Click);
-			// 
-			// button1
-			// 
-			this.button1.BackColor = System.Drawing.Color.Red;
-			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(225, 71);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(40, 38);
-			this.button1.TabIndex = 13;
-			this.button1.Text = "-";
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// label2
 			// 
@@ -149,28 +123,29 @@
 			// txtAlcoolicos
 			// 
 			this.txtAlcoolicos.Location = new System.Drawing.Point(308, 44);
+			this.txtAlcoolicos.MaxLength = 2;
 			this.txtAlcoolicos.Name = "txtAlcoolicos";
 			this.txtAlcoolicos.Size = new System.Drawing.Size(41, 20);
 			this.txtAlcoolicos.TabIndex = 6;
 			// 
 			// cbmNao_alcoolicos
 			// 
+			this.cbmNao_alcoolicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbmNao_alcoolicos.FormattingEnabled = true;
 			this.cbmNao_alcoolicos.Location = new System.Drawing.Point(94, 187);
 			this.cbmNao_alcoolicos.Name = "cbmNao_alcoolicos";
 			this.cbmNao_alcoolicos.Size = new System.Drawing.Size(194, 21);
 			this.cbmNao_alcoolicos.TabIndex = 5;
-			this.cbmNao_alcoolicos.Text = "Selecione um produto";
 			this.cbmNao_alcoolicos.SelectedIndexChanged += new System.EventHandler(this.cbmNao_alcoolicos_SelectedIndexChanged);
 			// 
 			// cmbAlcoolicos
 			// 
+			this.cmbAlcoolicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbAlcoolicos.FormattingEnabled = true;
 			this.cmbAlcoolicos.Location = new System.Drawing.Point(94, 44);
 			this.cmbAlcoolicos.Name = "cmbAlcoolicos";
 			this.cmbAlcoolicos.Size = new System.Drawing.Size(194, 21);
 			this.cmbAlcoolicos.TabIndex = 4;
-			this.cmbAlcoolicos.Text = "Selecione um produto";
 			this.cmbAlcoolicos.SelectedIndexChanged += new System.EventHandler(this.cmbAlcoolicos_SelectedIndexChanged);
 			// 
 			// pictureBox2
@@ -186,8 +161,9 @@
 			// btnAtualiza_lista
 			// 
 			this.btnAtualiza_lista.BackColor = System.Drawing.Color.Green;
+			this.btnAtualiza_lista.CausesValidation = false;
 			this.btnAtualiza_lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnAtualiza_lista.Location = new System.Drawing.Point(144, 71);
+			this.btnAtualiza_lista.Location = new System.Drawing.Point(184, 71);
 			this.btnAtualiza_lista.Name = "btnAtualiza_lista";
 			this.btnAtualiza_lista.Size = new System.Drawing.Size(40, 38);
 			this.btnAtualiza_lista.TabIndex = 12;
@@ -217,6 +193,7 @@
 			// txtNao_alcoolicos
 			// 
 			this.txtNao_alcoolicos.Location = new System.Drawing.Point(303, 187);
+			this.txtNao_alcoolicos.MaxLength = 2;
 			this.txtNao_alcoolicos.Name = "txtNao_alcoolicos";
 			this.txtNao_alcoolicos.Size = new System.Drawing.Size(41, 20);
 			this.txtNao_alcoolicos.TabIndex = 0;
@@ -248,7 +225,7 @@
 			this.btnCancelar_cardapio.Name = "btnCancelar_cardapio";
 			this.btnCancelar_cardapio.Size = new System.Drawing.Size(132, 54);
 			this.btnCancelar_cardapio.TabIndex = 9;
-			this.btnCancelar_cardapio.Text = "Retornar";
+			this.btnCancelar_cardapio.Text = "Cancelar";
 			this.btnCancelar_cardapio.UseVisualStyleBackColor = true;
 			this.btnCancelar_cardapio.Click += new System.EventHandler(this.btnCancelar_pedido_Click);
 			// 
@@ -266,10 +243,46 @@
 			this.tblCarinho.Location = new System.Drawing.Point(386, 127);
 			this.tblCarinho.MultiSelect = false;
 			this.tblCarinho.Name = "tblCarinho";
-			this.tblCarinho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.tblCarinho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.tblCarinho.Size = new System.Drawing.Size(408, 196);
 			this.tblCarinho.TabIndex = 10;
 			this.tblCarinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+			// 
+			// nomeProdutoDataGridViewTextBoxColumn
+			// 
+			this.nomeProdutoDataGridViewTextBoxColumn.DataPropertyName = "nomeProduto";
+			this.nomeProdutoDataGridViewTextBoxColumn.HeaderText = "NOME DO PRODUTO";
+			this.nomeProdutoDataGridViewTextBoxColumn.Name = "nomeProdutoDataGridViewTextBoxColumn";
+			// 
+			// valorProdutoDataGridViewTextBoxColumn
+			// 
+			this.valorProdutoDataGridViewTextBoxColumn.DataPropertyName = "valorProduto";
+			this.valorProdutoDataGridViewTextBoxColumn.HeaderText = "VALOR DO PRODUTO";
+			this.valorProdutoDataGridViewTextBoxColumn.Name = "valorProdutoDataGridViewTextBoxColumn";
+			// 
+			// qtdDataGridViewTextBoxColumn
+			// 
+			this.qtdDataGridViewTextBoxColumn.DataPropertyName = "qtd";
+			this.qtdDataGridViewTextBoxColumn.HeaderText = "QUANTIDADE";
+			this.qtdDataGridViewTextBoxColumn.Name = "qtdDataGridViewTextBoxColumn";
+			this.qtdDataGridViewTextBoxColumn.Width = 85;
+			// 
+			// subtotalDataGridViewTextBoxColumn
+			// 
+			this.subtotalDataGridViewTextBoxColumn.DataPropertyName = "subtotal";
+			this.subtotalDataGridViewTextBoxColumn.HeaderText = "SUBTOTAL";
+			this.subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
+			this.subtotalDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// itempedidoBindingSource1
+			// 
+			this.itempedidoBindingSource1.DataMember = "itempedido";
+			this.itempedidoBindingSource1.DataSource = this.sadrinksbeerDataSet3;
+			// 
+			// sadrinksbeerDataSet3
+			// 
+			this.sadrinksbeerDataSet3.DataSetName = "sadrinksbeerDataSet3";
+			this.sadrinksbeerDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// itempedidoBindingSource
 			// 
@@ -345,45 +358,9 @@
 			// 
 			this.itempedidoTableAdapter.ClearBeforeFill = true;
 			// 
-			// sadrinksbeerDataSet3
-			// 
-			this.sadrinksbeerDataSet3.DataSetName = "sadrinksbeerDataSet3";
-			this.sadrinksbeerDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
-			// itempedidoBindingSource1
-			// 
-			this.itempedidoBindingSource1.DataMember = "itempedido";
-			this.itempedidoBindingSource1.DataSource = this.sadrinksbeerDataSet3;
-			// 
 			// itempedidoTableAdapter1
 			// 
 			this.itempedidoTableAdapter1.ClearBeforeFill = true;
-			// 
-			// nomeProdutoDataGridViewTextBoxColumn
-			// 
-			this.nomeProdutoDataGridViewTextBoxColumn.DataPropertyName = "nomeProduto";
-			this.nomeProdutoDataGridViewTextBoxColumn.HeaderText = "NOME DO PRODUTO";
-			this.nomeProdutoDataGridViewTextBoxColumn.Name = "nomeProdutoDataGridViewTextBoxColumn";
-			// 
-			// valorProdutoDataGridViewTextBoxColumn
-			// 
-			this.valorProdutoDataGridViewTextBoxColumn.DataPropertyName = "valorProduto";
-			this.valorProdutoDataGridViewTextBoxColumn.HeaderText = "VALOR DO PRODUTO";
-			this.valorProdutoDataGridViewTextBoxColumn.Name = "valorProdutoDataGridViewTextBoxColumn";
-			// 
-			// qtdDataGridViewTextBoxColumn
-			// 
-			this.qtdDataGridViewTextBoxColumn.DataPropertyName = "qtd";
-			this.qtdDataGridViewTextBoxColumn.HeaderText = "QUANTIDADE";
-			this.qtdDataGridViewTextBoxColumn.Name = "qtdDataGridViewTextBoxColumn";
-			this.qtdDataGridViewTextBoxColumn.Width = 85;
-			// 
-			// subtotalDataGridViewTextBoxColumn
-			// 
-			this.subtotalDataGridViewTextBoxColumn.DataPropertyName = "subtotal";
-			this.subtotalDataGridViewTextBoxColumn.HeaderText = "SUBTOTAL";
-			this.subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
-			this.subtotalDataGridViewTextBoxColumn.Width = 80;
 			// 
 			// valorFinal
 			// 
@@ -406,12 +383,24 @@
 			this.labelTotal.Text = " 0,00";
 			this.labelTotal.Click += new System.EventHandler(this.labelTotal_Click);
 			// 
+			// button4
+			// 
+			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button4.Location = new System.Drawing.Point(333, 384);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(132, 54);
+			this.button4.TabIndex = 18;
+			this.button4.Text = "Retirar Item";
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.button4_Click);
+			// 
 			// telaCardapio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.button4);
 			this.Controls.Add(this.labelTotal);
 			this.Controls.Add(this.valorFinal);
 			this.Controls.Add(this.label4);
@@ -432,12 +421,12 @@
 			((System.ComponentModel.ISupportInitialize)(this.bebidasBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.tblCarinho)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -461,7 +450,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAlcoolicos;
         private System.Windows.Forms.TextBox txtNao_alcoolicos;
-        private System.Windows.Forms.Button button1;
         private sadrinksbeerDataSet sadrinksbeerDataSet;
         private System.Windows.Forms.BindingSource bebidasBindingSource;
         private sadrinksbeerDataSetTableAdapters.bebidasTableAdapter bebidasTableAdapter;
@@ -472,7 +460,6 @@
 		private sadrinksbeerDataSet2 sadrinksbeerDataSet2;
 		private System.Windows.Forms.BindingSource itempedidoBindingSource;
 		private sadrinksbeerDataSet2TableAdapters.itempedidoTableAdapter itempedidoTableAdapter;
-		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button3;
 		private sadrinksbeerDataSet3 sadrinksbeerDataSet3;
 		private System.Windows.Forms.BindingSource itempedidoBindingSource1;
@@ -483,5 +470,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
 		private System.Windows.Forms.Label valorFinal;
 		private System.Windows.Forms.Label labelTotal;
-	}
+        private System.Windows.Forms.Button button4;
+    }
 }
