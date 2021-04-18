@@ -14,11 +14,15 @@ namespace DrinksBeer.Models
 {
 	public partial class Capa : Form
 	{
+		private MySqlConnection mConn;
+		private MySqlDataAdapter mAdapter;
+		private DataSet mDataSet;
 		public Capa()
 		{
 			InitializeComponent();
 			geraNumPedido();
 		}
+
 		private void geraNumPedido()
 		{
 			string Pedido_data1 = "";
@@ -28,15 +32,29 @@ namespace DrinksBeer.Models
 				pedido_data1.Millisecond.ToString();
 		}
 		private void Capa_Load(object sender, EventArgs e)
-		{ }
+		{// TODO: esta linha de código carrega dados na tabela 'sadrinksbeerDataSet5.itempedido'. Você pode movê-la ou removê-la conforme necessário.
+			this.itempedidoTableAdapter.Fill(this.sadrinksbeerDataSet5.itempedido);
+		}
 		private void btnIniciar_Click(object sender, EventArgs e)
-		{
+		{			
 			Visible = false;
 			new telaCardapio().Show();
 		}
 		private void label2_Click(object sender, EventArgs e)
 		{ }
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{ }
+		{
+			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
+
+			mConn.Open();
+
+			mAdapter = new MySqlDataAdapter("select distinct pedido from sadrinksbeer.itempedido;", mConn);
+
+			mAdapter.Fill(mDataSet, "ITEMPEDIDO");
+
+			tblPedidos.DataSource = mDataSet;
+
+			tblPedidos.DataMember = "ITEMPEDIDO";
+		}
 	}
 }

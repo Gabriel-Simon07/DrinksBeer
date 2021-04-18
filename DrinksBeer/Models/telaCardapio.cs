@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using DrinksBeer.Views;
+using System.Data.SqlClient;
+
 
 namespace DrinksBeer.Models
 {
@@ -24,38 +26,23 @@ namespace DrinksBeer.Models
 		string[] naoAlcoolicosNomes = { "Coca-Cola 2L", "Fanta Laranja 2L", "Guaraná Kuat 2L", "Água Mineral 350ml", "Red Bull 250ml", "Água de Coco" };
 		double[] naoAlcoolicosPrecos = { 10.0, 10.0, 10.0, 4.0, 12.0, 6.0 };
 
+		private MySqlDataReader aReader;
 		private MySqlConnection mConn;
 		private MySqlDataAdapter mAdapter;
 		private DataSet mDataSet;
 		public static string Pedido_data1 = "";
-
+		public static double soma = 0;
+		public static double total = 0;
+		
 		public telaCardapio()
 		{
 			InitializeComponent();
 			cmbAlcoolicos.DataSource = alcoolicos;
 			cbmNao_alcoolicos.DataSource = naoAlcoolicos;
 			mostraCarrinho();
-			valorTotal();
 			atualizaCarrinho();
+			labelTotal.Text = Program.total.ToString();
 		}
-
-		private void mostraValor()
-		{
-			mDataSet = new DataSet();
-
-			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
-
-			mConn.Open();
-
-			mAdapter = new MySqlDataAdapter("select sum(subtotal) as 'Preço total' from itempedido;", mConn);
-
-			mAdapter.Fill(mDataSet, "ITEMPEDIDO");
-
-			tblCarinho.DataSource = mDataSet;
-
-			tblCarinho.DataMember = "ITEMPEDIDO";
-		}
-
 		private void label4_Click(object sender, EventArgs e)
 		{ }
 
@@ -67,6 +54,12 @@ namespace DrinksBeer.Models
 
 		private void btnFinalizar_cardapio_Click(object sender, EventArgs e)
 		{
+			while (String.IsNullOrWhiteSpace(txtAlcoolicos.Text) || String.IsNullOrWhiteSpace(txtNao_alcoolicos.Text))
+			{
+				MessageBox.Show("É importante que todos os campos estejam preenchidos");
+				return;
+			}
+
 			Visible = false;
 			new telaCadastroUsuario().Show();
 		}
@@ -104,7 +97,6 @@ namespace DrinksBeer.Models
 		{
 			nomeProduto = tblCarinho.CurrentRow.Cells[0].Value.ToString();
 
-
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
 
 			mConn.Open();
@@ -135,22 +127,24 @@ namespace DrinksBeer.Models
 
 			tblCarinho.DataMember = "ITEMPEDIDO";
 		}
-		private void valorTotal()
-		{
-			mDataSet = new DataSet();
 
+		public void valorTotal()
+		{
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
 
 			mConn.Open();
+			MySqlCommand command = new MySqlCommand($"select subtotal from itempedido where id_itempedido=" +
+				$"(select max(id_itempedido) from itempedido)", mConn);
 
-			mAdapter = new MySqlDataAdapter($"SELECT sum(subtotal) FROM ITEMPEDIDO where pedido ='{telaCardapio.Pedido_data1}'", mConn);
-
-			mAdapter.Fill(mDataSet, "ITEMPEDIDO");
-
-			tblCarinho.DataSource = mDataSet;
-
-			tblCarinho.DataMember = "ITEMPEDIDO";
+			aReader = command.ExecuteReader();
+			if (aReader.Read())
+			{
+				Program.total += double.Parse(aReader.GetValue(0).ToString());
+			}
+			mConn.Close();
+			labelTotal.Text = Program.total.ToString();
 		}
+		
 		private void btnAtualiza_lista_Click(object sender, EventArgs e)
 		{
 			string nomeBebida = alcoolicosNomes[cmbAlcoolicos.SelectedIndex];
@@ -158,16 +152,18 @@ namespace DrinksBeer.Models
 			double valorItem = precoBebida * Convert.ToDouble(txtAlcoolicos.Text);
 
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
-
+			//ySqlCommand command = new MySqlCommand("INSERT INTO ITEMPEDIDO (qtd, nomeProduto, valorProduto, subtotal, pedido, vendaLivre)"
 			mConn.Open();
-
+			
 			MySqlCommand command = new MySqlCommand("INSERT INTO ITEMPEDIDO (qtd, nomeProduto, valorProduto, subtotal, pedido, vendaLivre)"
 				+ "VALUES(" + int.Parse(txtAlcoolicos.Text) + ",'" + nomeBebida + "'," + precoBebida + "," + valorItem + "," + Pedido_data1 + ",'n')", mConn);
 
 			command.ExecuteNonQuery();
 			mostraCarrinho();
+			valorTotal();
 			mConn.Close();
 		}
+
 
 		private void label4_Click_1(object sender, EventArgs e)
 		{ }
@@ -186,6 +182,7 @@ namespace DrinksBeer.Models
 
 			command.ExecuteNonQuery();
 			mostraCarrinho();
+			valorTotal();
 			mConn.Close();
 		}
 		private void button1_Click(object sender, EventArgs e)
@@ -195,7 +192,9 @@ namespace DrinksBeer.Models
 		private void cbmNao_alcoolicos_SelectedIndexChanged(object sender, EventArgs e)
 		{ }
 		private void labelTotal_Click(object sender, EventArgs e)
-		{ }
+		{
+
+		}
 		private void button4_Click(object sender, EventArgs e)
 		{
 			deletaGrid();

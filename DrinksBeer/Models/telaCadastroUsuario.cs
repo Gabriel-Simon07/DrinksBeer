@@ -21,8 +21,9 @@ namespace DrinksBeer.Models
 		public telaCadastroUsuario()
 		{
 			InitializeComponent();
-			dataMostra();
+			dataMostra();			
 		}
+
 		private void dataMostra()
 		{
 			DateTime pedido_data1 = DateTime.Now;
@@ -33,12 +34,13 @@ namespace DrinksBeer.Models
 		private void label2_Click(object sender, EventArgs e)
 		{ }
 		private void btnCancelar_cadastro_Click(object sender, EventArgs e)
-		{
+		{		
 			Visible = false;
 			new telaCardapio().Show();
 		}
 		private void telaCadastroUsuario_Load(object sender, EventArgs e)
 		{ label16.Text = telaCardapio.Pedido_data1; }
+
 		private void btnCadastrar_Click(object sender, EventArgs e)
 		{
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
@@ -76,15 +78,24 @@ namespace DrinksBeer.Models
 				MySqlCommand command = new MySqlCommand($"UPDATE PEDIDO SET formaPagamento='{radioButton3.Text}', troco={txtTroco.Text} where numeroPedido={telaCardapio.Pedido_data1}", mConn);//dinheiro
 				command.ExecuteNonQuery();
 			}
-			Visible = false;
-			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
+			
 			mConn.Close();
 
-			MessageBox.Show($"Pedido feito com Sucesso!", "Informação", MessageBoxButtons.OK,
-				MessageBoxIcon.Information);
+			while (String.IsNullOrWhiteSpace(txtNome.Text) || String.IsNullOrWhiteSpace(txtTelefone.Text) ||
+				String.IsNullOrWhiteSpace(dtpNascimento.Text) || String.IsNullOrWhiteSpace(txtCpf.Text) ||
+				String.IsNullOrWhiteSpace(txtRua.Text) || String.IsNullOrWhiteSpace(txtNum_casa.Text) || String.IsNullOrWhiteSpace(txtBairro.Text)
+				|| String.IsNullOrWhiteSpace(txtCep.Text) || String.IsNullOrWhiteSpace(txtCidade.Text) || String.IsNullOrWhiteSpace(rbEnvio_casa.Text)
+				|| String.IsNullOrWhiteSpace(rbRetirada_local.Text) || String.IsNullOrWhiteSpace(radioButton1.Text) || String.IsNullOrWhiteSpace(radioButton2.Text)
+				|| String.IsNullOrWhiteSpace(radioButton3.Text))
+				{				
+					MessageBox.Show("É importante que todos os campos estejam preenchidos");
+					return;
+			}							
+					MessageBox.Show($"Pedido feito com Sucesso!", "Informação", MessageBoxButtons.OK,
+					MessageBoxIcon.Information);
 
-			Visible = false;
-			new Capa().Show();
+					Visible = false;
+					new Capa().Show();			
 		}
 		private void label6_Click(object sender, EventArgs e)
 		{ }

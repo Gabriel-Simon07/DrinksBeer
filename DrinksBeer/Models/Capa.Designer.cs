@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			this.label1 = new System.Windows.Forms.Label();
 			this.btnIniciar = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tblPedidos = new System.Windows.Forms.DataGridView();
 			this.label2 = new System.Windows.Forms.Label();
+			this.sadrinksbeerDataSet5 = new DrinksBeer.sadrinksbeerDataSet5();
+			this.itempedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.itempedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet5TableAdapters.itempedidoTableAdapter();
+			this.pedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.tblPedidos)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -71,12 +78,16 @@
 			// 
 			// tblPedidos
 			// 
+			this.tblPedidos.AutoGenerateColumns = false;
 			this.tblPedidos.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
 			this.tblPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.tblPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pedidoDataGridViewTextBoxColumn});
+			this.tblPedidos.DataSource = this.itempedidoBindingSource;
 			this.tblPedidos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.tblPedidos.Location = new System.Drawing.Point(547, 97);
+			this.tblPedidos.Location = new System.Drawing.Point(532, 97);
 			this.tblPedidos.Name = "tblPedidos";
-			this.tblPedidos.Size = new System.Drawing.Size(179, 324);
+			this.tblPedidos.Size = new System.Drawing.Size(226, 324);
 			this.tblPedidos.TabIndex = 4;
 			this.tblPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
@@ -91,6 +102,27 @@
 			this.label2.TabIndex = 5;
 			this.label2.Text = "Pedidos do dia ";
 			this.label2.Click += new System.EventHandler(this.label2_Click);
+			// 
+			// sadrinksbeerDataSet5
+			// 
+			this.sadrinksbeerDataSet5.DataSetName = "sadrinksbeerDataSet5";
+			this.sadrinksbeerDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// itempedidoBindingSource
+			// 
+			this.itempedidoBindingSource.DataMember = "itempedido";
+			this.itempedidoBindingSource.DataSource = this.sadrinksbeerDataSet5;
+			// 
+			// itempedidoTableAdapter
+			// 
+			this.itempedidoTableAdapter.ClearBeforeFill = true;
+			// 
+			// pedidoDataGridViewTextBoxColumn
+			// 
+			this.pedidoDataGridViewTextBoxColumn.DataPropertyName = "pedido";
+			this.pedidoDataGridViewTextBoxColumn.HeaderText = "PEDIDOS";
+			this.pedidoDataGridViewTextBoxColumn.Name = "pedidoDataGridViewTextBoxColumn";
+			this.pedidoDataGridViewTextBoxColumn.Width = 183;
 			// 
 			// Capa
 			// 
@@ -108,6 +140,8 @@
 			this.Load += new System.EventHandler(this.Capa_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.tblPedidos)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -120,5 +154,9 @@
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.DataGridView tblPedidos;
         private System.Windows.Forms.Label label2;
+		private sadrinksbeerDataSet5 sadrinksbeerDataSet5;
+		private System.Windows.Forms.BindingSource itempedidoBindingSource;
+		private sadrinksbeerDataSet5TableAdapters.itempedidoTableAdapter itempedidoTableAdapter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn pedidoDataGridViewTextBoxColumn;
 	}
 }

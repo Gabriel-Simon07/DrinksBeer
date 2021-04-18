@@ -92,7 +92,7 @@
 			this.groupBox1.Controls.Add(this.pictureBox1);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.txtNao_alcoolicos);
-			this.groupBox1.Location = new System.Drawing.Point(25, 87);
+			this.groupBox1.Location = new System.Drawing.Point(12, 63);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(355, 261);
 			this.groupBox1.TabIndex = 0;
@@ -240,7 +240,7 @@
             this.qtdDataGridViewTextBoxColumn,
             this.subtotalDataGridViewTextBoxColumn});
 			this.tblCarinho.DataSource = this.itempedidoBindingSource1;
-			this.tblCarinho.Location = new System.Drawing.Point(386, 127);
+			this.tblCarinho.Location = new System.Drawing.Point(380, 91);
 			this.tblCarinho.MultiSelect = false;
 			this.tblCarinho.Name = "tblCarinho";
 			this.tblCarinho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -319,7 +319,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.ForeColor = System.Drawing.Color.Red;
-			this.label5.Location = new System.Drawing.Point(389, 328);
+			this.label5.Location = new System.Drawing.Point(402, 308);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(132, 13);
 			this.label5.TabIndex = 14;
@@ -329,7 +329,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.ForeColor = System.Drawing.Color.Red;
-			this.label6.Location = new System.Drawing.Point(339, 351);
+			this.label6.Location = new System.Drawing.Point(352, 331);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(235, 13);
 			this.label6.TabIndex = 15;
@@ -342,10 +342,10 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-			this.label4.Location = new System.Drawing.Point(527, 87);
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(533, 59);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(141, 37);
+			this.label4.Size = new System.Drawing.Size(105, 29);
 			this.label4.TabIndex = 14;
 			this.label4.Text = "Carrinho";
 			this.label4.Click += new System.EventHandler(this.label4_Click_1);
@@ -366,7 +366,7 @@
 			// 
 			this.valorFinal.AutoSize = true;
 			this.valorFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.valorFinal.Location = new System.Drawing.Point(580, 335);
+			this.valorFinal.Location = new System.Drawing.Point(607, 308);
 			this.valorFinal.Name = "valorFinal";
 			this.valorFinal.Size = new System.Drawing.Size(133, 33);
 			this.valorFinal.TabIndex = 16;
@@ -376,11 +376,11 @@
 			// 
 			this.labelTotal.AutoSize = true;
 			this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelTotal.Location = new System.Drawing.Point(709, 335);
+			this.labelTotal.Location = new System.Drawing.Point(736, 308);
 			this.labelTotal.Name = "labelTotal";
-			this.labelTotal.Size = new System.Drawing.Size(79, 33);
+			this.labelTotal.Size = new System.Drawing.Size(55, 33);
 			this.labelTotal.TabIndex = 17;
-			this.labelTotal.Text = " 0,00";
+			this.labelTotal.Text = "0,0";
 			this.labelTotal.Click += new System.EventHandler(this.labelTotal_Click);
 			// 
 			// button4
