@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using DrinksBeer.Models;
-
+using DrinksBeer.Views;
 namespace DrinksBeer.Models
 {
 	public partial class telaCadastroUsuario : Form
@@ -21,20 +21,21 @@ namespace DrinksBeer.Models
 		public telaCadastroUsuario()
 		{
 			InitializeComponent();
-			dataMostra();			
+			//dataMostra();
 		}
 
-		private void dataMostra()
-		{
-			DateTime pedido_data1 = DateTime.Now;
-			Pedido_data1 = pedido_data1.Year.ToString() + pedido_data1.Month.ToString() + pedido_data1.Day.ToString()
-				+ pedido_data1.Hour.ToString() + pedido_data1.Minute.ToString() + pedido_data1.Second.ToString() +
-				pedido_data1.Millisecond.ToString();
-		}
+		//private void dataMostra()
+		//{
+		//	DateTime pedido_data1 = DateTime.Now;
+		//	Pedido_data1 = pedido_data1.Year.ToString() + pedido_data1.Month.ToString() + pedido_data1.Day.ToString()
+		//		+ pedido_data1.Hour.ToString() + pedido_data1.Minute.ToString() + pedido_data1.Second.ToString() +
+		//		pedido_data1.Millisecond.ToString();
+		//}
 		private void label2_Click(object sender, EventArgs e)
 		{ }
 		private void btnCancelar_cadastro_Click(object sender, EventArgs e)
-		{		
+		{
+			
 			Visible = false;
 			new telaCardapio().Show();
 		}
@@ -43,6 +44,44 @@ namespace DrinksBeer.Models
 
 		private void btnCadastrar_Click(object sender, EventArgs e)
 		{
+			while (String.IsNullOrWhiteSpace(txtNome.Text) || String.IsNullOrWhiteSpace(txtTelefone.Text) ||
+				String.IsNullOrWhiteSpace(dtpNascimento.Text) || String.IsNullOrWhiteSpace(txtCpf.Text) ||
+				String.IsNullOrWhiteSpace(txtRua.Text) || String.IsNullOrWhiteSpace(txtNum_casa.Text) || String.IsNullOrWhiteSpace(txtBairro.Text)
+				|| String.IsNullOrWhiteSpace(txtCep.Text) || String.IsNullOrWhiteSpace(txtCidade.Text) || String.IsNullOrWhiteSpace(rbEnvio_casa.Text)
+				|| String.IsNullOrWhiteSpace(rbRetirada_local.Text) || String.IsNullOrWhiteSpace(radioButton1.Text) || String.IsNullOrWhiteSpace(radioButton2.Text)
+				|| String.IsNullOrWhiteSpace(radioButton3.Text))
+			{
+				MessageBox.Show("É importante que todos os campos estejam preenchidos");
+				return;
+			}
+			MessageBox.Show($"Pedido feito com Sucesso!", "Informação", MessageBoxButtons.OK,
+			MessageBoxIcon.Information);
+
+			if (txtNome.Text.Length >= 3 && txtRua.Text.Length >= 3 && txtCidade.Text.Length >= 3 &&
+				txtTelefone.Text.Length >= 4 && txtTelefone.Text.Length <= 9 && int.Parse(txtNum_casa.Text) > 0
+				&& int.Parse(txtCep.Text) > 0 && int.Parse(txtCep.Text) < 10 && txtCpf.Text.Length == 11 && txtBairro.Text.Length > 5)
+			{
+				Visible = false;
+				new Capa().Show();
+			}
+			try
+			{
+				Cadastro cadastro = new Cadastro()
+				{
+					Nome = txtNome.Text,
+					Rua = txtRua.Text,
+					Cidade = txtCidade.Text,
+					Telefone = txtTelefone.Text,
+					NumeroCasa = int.Parse(txtNum_casa.Text),
+					Cep = int.Parse(txtCep.Text),
+					Cpf = txtCpf.Text,
+					Bairro = txtBairro.Text
+				};
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
 
 			mConn.Open();
@@ -78,24 +117,7 @@ namespace DrinksBeer.Models
 				MySqlCommand command = new MySqlCommand($"UPDATE PEDIDO SET formaPagamento='{radioButton3.Text}', troco={txtTroco.Text} where numeroPedido={telaCardapio.Pedido_data1}", mConn);//dinheiro
 				command.ExecuteNonQuery();
 			}
-			
-			mConn.Close();
-
-			while (String.IsNullOrWhiteSpace(txtNome.Text) || String.IsNullOrWhiteSpace(txtTelefone.Text) ||
-				String.IsNullOrWhiteSpace(dtpNascimento.Text) || String.IsNullOrWhiteSpace(txtCpf.Text) ||
-				String.IsNullOrWhiteSpace(txtRua.Text) || String.IsNullOrWhiteSpace(txtNum_casa.Text) || String.IsNullOrWhiteSpace(txtBairro.Text)
-				|| String.IsNullOrWhiteSpace(txtCep.Text) || String.IsNullOrWhiteSpace(txtCidade.Text) || String.IsNullOrWhiteSpace(rbEnvio_casa.Text)
-				|| String.IsNullOrWhiteSpace(rbRetirada_local.Text) || String.IsNullOrWhiteSpace(radioButton1.Text) || String.IsNullOrWhiteSpace(radioButton2.Text)
-				|| String.IsNullOrWhiteSpace(radioButton3.Text))
-				{				
-					MessageBox.Show("É importante que todos os campos estejam preenchidos");
-					return;
-			}							
-					MessageBox.Show($"Pedido feito com Sucesso!", "Informação", MessageBoxButtons.OK,
-					MessageBoxIcon.Information);
-
-					Visible = false;
-					new Capa().Show();			
+			mConn.Close();						
 		}
 		private void label6_Click(object sender, EventArgs e)
 		{ }

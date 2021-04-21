@@ -8,6 +8,42 @@ namespace DrinksBeer.Views
 {
 	public class Cadastro
 	{
+		private int qtdMinAlcool;
+
+		public int QtdMinAlcool
+		{
+			get { return qtdMinAlcool; }
+			set
+			{
+				if (value > 0)
+				{
+					qtdMinAlcool = value;
+				}
+				else
+				{
+					throw new Exception("A quantidade de bebidas alcoolicas não pode ser menor que 1");
+				}
+			}
+		}
+		private int qtdMinS_alcool;
+
+		public int QtdMinS_alcool
+		{
+			get { return qtdMinS_alcool; }
+			set
+			{
+				if (value > 0)
+				{
+					qtdMinS_alcool = value;
+				}
+				else
+				{
+					throw new Exception("A quantidade de bebidas não alcoolicas não pode ser menor que 1");
+				}
+			}
+		}
+
+
 		private string nome;
 
 		public string Nome
@@ -66,7 +102,7 @@ namespace DrinksBeer.Views
 			get { return telefone; }
 			set
 			{
-				if (telefone.Length >= 4 && telefone.Length < 9)
+				if (telefone.Length >= 4 && telefone.Length <= 9)
 				{
 					telefone = value;
 				}
@@ -158,6 +194,40 @@ namespace DrinksBeer.Views
 				else
 				{
 					throw new Exception("A senha deve ter no mínimo 3 caracteres.");
+				}
+			}
+		}
+		private string cpf;
+
+		public string Cpf
+		{
+			get { return cpf; }
+			set
+			{
+				if (cpf.Length == 11)
+				{
+					cpf = value;
+				}
+				else
+				{
+					throw new Exception("O Cpf precisa ter no mínimo 11 caracteres");
+				}
+			}
+		}
+		private string bairro;
+
+		public string Bairro
+		{
+			get { return bairro; }
+			set
+			{
+				if (bairro.Length > 5)
+				{
+					bairro = value;
+				}
+				else
+				{
+					throw new Exception("O nome do bairro precisa ter no mínimo 6 caracteres");
 				}
 			}
 		}

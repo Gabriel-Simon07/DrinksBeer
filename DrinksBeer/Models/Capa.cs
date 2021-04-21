@@ -17,6 +17,7 @@ namespace DrinksBeer.Models
 		private MySqlConnection mConn;
 		private MySqlDataAdapter mAdapter;
 		private DataSet mDataSet;
+		
 		public Capa()
 		{
 			InitializeComponent();

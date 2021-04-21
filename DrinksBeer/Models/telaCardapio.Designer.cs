@@ -66,6 +66,7 @@
 			this.valorFinal = new System.Windows.Forms.Label();
 			this.labelTotal = new System.Windows.Forms.Label();
 			this.button4 = new System.Windows.Forms.Button();
+			this.situacaoFrete = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,7 +95,7 @@
 			this.groupBox1.Controls.Add(this.txtNao_alcoolicos);
 			this.groupBox1.Location = new System.Drawing.Point(12, 63);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(355, 261);
+			this.groupBox1.Size = new System.Drawing.Size(355, 224);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -103,7 +104,7 @@
 			// 
 			this.button3.BackColor = System.Drawing.Color.Green;
 			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(184, 214);
+			this.button3.Location = new System.Drawing.Point(183, 175);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(40, 39);
 			this.button3.TabIndex = 14;
@@ -114,7 +115,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(309, 171);
+			this.label2.Location = new System.Drawing.Point(308, 132);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(30, 13);
 			this.label2.TabIndex = 7;
@@ -132,7 +133,7 @@
 			// 
 			this.cbmNao_alcoolicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbmNao_alcoolicos.FormattingEnabled = true;
-			this.cbmNao_alcoolicos.Location = new System.Drawing.Point(94, 187);
+			this.cbmNao_alcoolicos.Location = new System.Drawing.Point(93, 148);
 			this.cbmNao_alcoolicos.Name = "cbmNao_alcoolicos";
 			this.cbmNao_alcoolicos.Size = new System.Drawing.Size(194, 21);
 			this.cbmNao_alcoolicos.TabIndex = 5;
@@ -151,7 +152,7 @@
 			// pictureBox2
 			// 
 			this.pictureBox2.Image = global::DrinksBeer.Properties.Resources.refrigerante;
-			this.pictureBox2.Location = new System.Drawing.Point(17, 149);
+			this.pictureBox2.Location = new System.Drawing.Point(16, 110);
 			this.pictureBox2.Name = "pictureBox2";
 			this.pictureBox2.Size = new System.Drawing.Size(71, 85);
 			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -192,7 +193,7 @@
 			// 
 			// txtNao_alcoolicos
 			// 
-			this.txtNao_alcoolicos.Location = new System.Drawing.Point(303, 187);
+			this.txtNao_alcoolicos.Location = new System.Drawing.Point(302, 148);
 			this.txtNao_alcoolicos.MaxLength = 2;
 			this.txtNao_alcoolicos.Name = "txtNao_alcoolicos";
 			this.txtNao_alcoolicos.Size = new System.Drawing.Size(41, 20);
@@ -319,7 +320,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.ForeColor = System.Drawing.Color.Red;
-			this.label5.Location = new System.Drawing.Point(402, 308);
+			this.label5.Location = new System.Drawing.Point(138, 305);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(132, 13);
 			this.label5.TabIndex = 14;
@@ -329,7 +330,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.ForeColor = System.Drawing.Color.Red;
-			this.label6.Location = new System.Drawing.Point(352, 331);
+			this.label6.Location = new System.Drawing.Point(88, 328);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(235, 13);
 			this.label6.TabIndex = 15;
@@ -394,12 +395,23 @@
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.button4_Click);
 			// 
+			// situacaoFrete
+			// 
+			this.situacaoFrete.AutoSize = true;
+			this.situacaoFrete.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.situacaoFrete.Location = new System.Drawing.Point(389, 312);
+			this.situacaoFrete.Name = "situacaoFrete";
+			this.situacaoFrete.Size = new System.Drawing.Size(73, 33);
+			this.situacaoFrete.TabIndex = 19;
+			this.situacaoFrete.Text = "frete";
+			// 
 			// telaCardapio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.situacaoFrete);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.labelTotal);
 			this.Controls.Add(this.valorFinal);
@@ -471,5 +483,6 @@
 		private System.Windows.Forms.Label valorFinal;
 		private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Button button4;
-    }
+		private System.Windows.Forms.Label situacaoFrete;
+	}
 }
