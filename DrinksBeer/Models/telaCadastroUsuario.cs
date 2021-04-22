@@ -17,20 +17,12 @@ namespace DrinksBeer.Models
 		private MySqlConnection mConn;
 		private MySqlDataAdapter mAdapter;
 		private DataSet mDataSet;
-		string Pedido_data1 = "";
+
 		public telaCadastroUsuario()
 		{
-			InitializeComponent();
-			//dataMostra();
+			InitializeComponent();			
 		}
 
-		//private void dataMostra()
-		//{
-		//	DateTime pedido_data1 = DateTime.Now;
-		//	Pedido_data1 = pedido_data1.Year.ToString() + pedido_data1.Month.ToString() + pedido_data1.Day.ToString()
-		//		+ pedido_data1.Hour.ToString() + pedido_data1.Minute.ToString() + pedido_data1.Second.ToString() +
-		//		pedido_data1.Millisecond.ToString();
-		//}
 		private void label2_Click(object sender, EventArgs e)
 		{ }
 		private void btnCancelar_cadastro_Click(object sender, EventArgs e)
@@ -40,7 +32,7 @@ namespace DrinksBeer.Models
 			new telaCardapio().Show();
 		}
 		private void telaCadastroUsuario_Load(object sender, EventArgs e)
-		{ label16.Text = telaCardapio.Pedido_data1; }
+		{ label16.Text = Capa.Pedido_data1; }
 
 		private void btnCadastrar_Click(object sender, EventArgs e)
 		{
@@ -90,7 +82,7 @@ namespace DrinksBeer.Models
 				MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(nomeCompleto," +
 				" telefone, nomeRua, dataNascimento, cidade, cep, numeroCasa, bairro, formaRetirada, numeroPedido, cpf)" + "VALUES('" + txtNome.Text + "','"
 				+ txtTelefone.Text + "','" + txtRua.Text + "','" + dtpNascimento.Text + "','" + txtCidade.Text + "','"
-				+ txtCep.Text + "','" + txtNum_casa.Text + "','" + txtBairro.Text + "','" + rbEnvio_casa.Text + "'," + telaCardapio.Pedido_data1 + ",'" + txtCpf.Text + "')", mConn);
+				+ txtCep.Text + "','" + txtNum_casa.Text + "','" + txtBairro.Text + "','" + rbEnvio_casa.Text + "'," + Capa.Pedido_data1 + ",'" + txtCpf.Text + "')", mConn);
 				command.ExecuteNonQuery();
 			}
 			if (rbRetirada_local.Checked)
@@ -98,23 +90,23 @@ namespace DrinksBeer.Models
 				MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(nomeCompleto," +
 				" telefone, nomeRua, dataNascimento, cidade, cep, numeroCasa, bairro, formaRetirada, numeroPedido, cpf)" + "VALUES('" + txtNome.Text + "','"
 				+ txtTelefone.Text + "','" + txtRua.Text + "','" + dtpNascimento.Text + "','" + txtCidade.Text + "','"
-				+ txtCep.Text + "','" + txtNum_casa.Text + "','" + txtBairro.Text + "','" + rbRetirada_local.Text + "'," + telaCardapio.Pedido_data1 + ",'" + txtCpf.Text + "')", mConn);
+				+ txtCep.Text + "','" + txtNum_casa.Text + "','" + txtBairro.Text + "','" + rbRetirada_local.Text + "'," + Capa.Pedido_data1 + ",'" + txtCpf.Text + "')", mConn);
 				command.ExecuteNonQuery();
 			}
 			if (radioButton1.Checked)
 			{
-				MySqlCommand command = new MySqlCommand($"UPDATE PEDIDO SET formaPagamento='{radioButton1.Text}' where numeroPedido={telaCardapio.Pedido_data1}", mConn);//debito
+				MySqlCommand command = new MySqlCommand($"UPDATE PEDIDO SET formaPagamento='{radioButton1.Text}' where numeroPedido={Capa.Pedido_data1}", mConn);//debito
 
 				command.ExecuteNonQuery();
 			}
 			if (radioButton2.Checked)
 			{
-				MySqlCommand command = new MySqlCommand($"UPDATE PEDIDO SET formaPagamento='{radioButton2.Text}' where numeroPedido={telaCardapio.Pedido_data1}", mConn);//credito
+				MySqlCommand command = new MySqlCommand($"UPDATE PEDIDO SET formaPagamento='{radioButton2.Text}' where numeroPedido={Capa.Pedido_data1}", mConn);//credito
 				command.ExecuteNonQuery();
 			}
 			if (radioButton3.Checked)
 			{
-				MySqlCommand command = new MySqlCommand($"UPDATE PEDIDO SET formaPagamento='{radioButton3.Text}', troco={txtTroco.Text} where numeroPedido={telaCardapio.Pedido_data1}", mConn);//dinheiro
+				MySqlCommand command = new MySqlCommand($"UPDATE PEDIDO SET formaPagamento='{radioButton3.Text}', troco={txtTroco.Text} where numeroPedido={Capa.Pedido_data1}", mConn);//dinheiro
 				command.ExecuteNonQuery();
 			}
 			mConn.Close();						

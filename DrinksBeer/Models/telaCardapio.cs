@@ -33,10 +33,9 @@ namespace DrinksBeer.Models
 		private MySqlConnection mConn;
 		private MySqlDataAdapter mAdapter;
 		private DataSet mDataSet;
-		public static string Pedido_data1 = "";
 		public static double soma = 0;
 		public static double total = 0;
-
+		public static double valorItem=0;
 
 		public telaCardapio()
 		{
@@ -46,13 +45,12 @@ namespace DrinksBeer.Models
 			mostraCarrinho();
 			atualizaCarrinho();
 			labelTotal.Text = Program.total.ToString();
-			//incluiTaxa();
-
+			//verificaRegistros();
 		}
 
+		
 
-
-		private  void somaValores()
+		private void somaValores()
 		{
 			Program.total = 0;
 
@@ -62,7 +60,7 @@ namespace DrinksBeer.Models
 
 			mConn.Open();
 
-			MySqlCommand command = new MySqlCommand($"select sum(subtotal) from itempedido where pedido='{telaCardapio.Pedido_data1}';", mConn);
+			MySqlCommand command = new MySqlCommand($"select sum(subtotal) from itempedido where pedido='{Capa.Pedido_data1}';", mConn);
 
 			mAdapter.Fill(mDataSet, "ITEMPEDIDO");
 
@@ -75,6 +73,7 @@ namespace DrinksBeer.Models
 			{
 				Program.total += double.Parse(aReader.GetValue(0).ToString());
 			}
+
 			mConn.Close();
 			labelTotal.Text = Program.total.ToString();
 		}
@@ -90,10 +89,10 @@ namespace DrinksBeer.Models
 		{
 			while (String.IsNullOrWhiteSpace(txtAlcoolicos.Text) || String.IsNullOrWhiteSpace(txtNao_alcoolicos.Text))
 			{
-				MessageBox.Show("É importante que todos os campos estejam preenchidos");
+				MessageBox.Show("Fique a vontade para comprar o que quiser");
 				return;
 			}
-			if (int.Parse(txtAlcoolicos.Text) >= 1 && int.Parse(txtNao_alcoolicos.Text) >= 1)
+			if (int.Parse(txtAlcoolicos.Text) >= 1 || int.Parse(txtNao_alcoolicos.Text) >= 1)
 			{
 				Visible = false;
 				new telaCadastroUsuario().Show();
@@ -115,12 +114,7 @@ namespace DrinksBeer.Models
 
 		private void telaCardapio_Load(object sender, EventArgs e)
 		{
-			this.itempedidoTableAdapter1.Fill(this.sadrinksbeerDataSet3.itempedido);
-
-			DateTime pedido_data1 = DateTime.Now;
-			Pedido_data1 = pedido_data1.Year.ToString() + pedido_data1.Month.ToString() + pedido_data1.Day.ToString()
-				+ pedido_data1.Hour.ToString() + pedido_data1.Minute.ToString() + pedido_data1.Second.ToString() +
-				pedido_data1.Millisecond.ToString();
+			this.itempedidoTableAdapter1.Fill(this.sadrinksbeerDataSet3.itempedido);			
 		}
 
 		private void atualizaCarrinho()
@@ -131,7 +125,7 @@ namespace DrinksBeer.Models
 
 			mConn.Open();
 
-			mAdapter = new MySqlDataAdapter($"select * from itempedido where pedido='{telaCardapio.Pedido_data1}';", mConn);
+			mAdapter = new MySqlDataAdapter($"select * from itempedido where pedido='{Capa.Pedido_data1}';", mConn);
 
 			mAdapter.Fill(mDataSet, "ITEMPEDIDO");
 
@@ -140,19 +134,16 @@ namespace DrinksBeer.Models
 			tblCarinho.DataMember = "ITEMPEDIDO";
 		}
 
-
 		public static string nomeProduto = "";
 		private void deletaGrid()
 		{
-
-
 			nomeProduto = tblCarinho.CurrentRow.Cells[0].Value.ToString();
 
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
 
 			mConn.Open();
 
-			MySqlCommand command = new MySqlCommand($"DELETE FROM ITEMPEDIDO WHERE nomeProduto='" + nomeProduto + "' and pedido =  " + telaCardapio.Pedido_data1, mConn);
+			MySqlCommand command = new MySqlCommand($"DELETE FROM ITEMPEDIDO WHERE nomeProduto='" + nomeProduto + "' and pedido =  " + Capa.Pedido_data1, mConn);
 
 			command.ExecuteNonQuery();
 
@@ -170,7 +161,7 @@ namespace DrinksBeer.Models
 
 			mConn.Open();
 
-			mAdapter = new MySqlDataAdapter($"SELECT nomeProduto, valorProduto, subtotal,qtd FROM ITEMPEDIDO where pedido ='{telaCardapio.Pedido_data1}'", mConn);
+			mAdapter = new MySqlDataAdapter($"SELECT nomeProduto, valorProduto, subtotal,qtd FROM ITEMPEDIDO where pedido ='{Capa.Pedido_data1}'", mConn);
 
 			mAdapter.Fill(mDataSet, "ITEMPEDIDO");
 
@@ -194,47 +185,55 @@ namespace DrinksBeer.Models
 			}
 			mConn.Close();
 			labelTotal.Text = Program.total.ToString();
-
 		}
-		//private void incluiTaxa()
-		//{			
-		//		mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
-
-		//		mConn.Open();
-
-		//		if (Program.total < 100)
-		//		{
-		//			MySqlCommand command = new MySqlCommand($"INSERT INTO ITEMPEDIDO (qtd, nomeProduto, subtotal)" + "VALUES('1',+, mConn);
-		//		}
-
-		//	mConn.Close();			
-		//}
-
+		
 		private void btnAtualiza_lista_Click(object sender, EventArgs e)
 		{
-			string nomeBebida = alcoolicosNomes[cmbAlcoolicos.SelectedIndex];
-			double precoBebida = alcoolicosPrecos[cmbAlcoolicos.SelectedIndex];
-			double valorItem = precoBebida * Convert.ToDouble(txtAlcoolicos.Text);
-
-			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
-			//ySqlCommand command = new MySqlCommand("INSERT INTO ITEMPEDIDO (qtd, nomeProduto, valorProduto, subtotal, pedido, vendaLivre)"
-			mConn.Open();
 
 
-			MySqlCommand command = new MySqlCommand("INSERT INTO ITEMPEDIDO (qtd, nomeProduto, valorProduto, subtotal, pedido, vendaLivre)"
-			+ "VALUES(" + int.Parse(txtAlcoolicos.Text) + ",'" + nomeBebida + "'," + precoBebida + "," + valorItem + "," + telaCardapio.Pedido_data1 + ",'n')", mConn);
+			while (String.IsNullOrWhiteSpace(txtAlcoolicos.Text) || int.Parse(txtAlcoolicos.Text) <= 0)
+			{
+				MessageBox.Show("É importante que todos os campos estejam preenchidos");
+				return;
+			}
+			if (int.Parse(txtAlcoolicos.Text) >= 1 || int.Parse(txtNao_alcoolicos.Text) >= 1)
+			{
+				string nomeBebida = alcoolicosNomes[cmbAlcoolicos.SelectedIndex];
+				double precoBebida = alcoolicosPrecos[cmbAlcoolicos.SelectedIndex];
+				double valorItem = precoBebida * Convert.ToDouble(txtAlcoolicos.Text);
 
-			command.ExecuteNonQuery();
-			mostraCarrinho();
-			valorTotal();
-			mConn.Close();
+				mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
+
+				mConn.Open();
+
+				MySqlCommand command = new MySqlCommand("INSERT INTO ITEMPEDIDO (qtd, nomeProduto, valorProduto, subtotal, pedido, vendaLivre)"
+				+ "VALUES(" + int.Parse(txtAlcoolicos.Text) + ",'" + nomeBebida + "'," + precoBebida + "," + valorItem + "," + Capa.Pedido_data1 + ",'n')", mConn);
+
+				command.ExecuteNonQuery();
+				mostraCarrinho();
+				valorTotal();
+				mConn.Close();
+			}
 		}
+		//private void verificaRegistros()
+		//{
+			
+		//	mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=testeBd");
+
+		//	mConn.Open();
+
+		//	MySqlCommand command = new MySqlCommand("UPDATE itempedido SET qtd= '" + txtAlcoolicos.Text + "',subtotal='" + valorItem + "' WHERE nomeProduto=" +txtAlcoolicos.Text, mConn);
+
+		//	command.ExecuteNonQuery();
+
+		//	mConn.Close();
+		//}
 		private void label4_Click_1(object sender, EventArgs e)
 		{ }
 		private void button3_Click(object sender, EventArgs e)
 		{
-			string nomeBebida = naoAlcoolicosNomes[cmbAlcoolicos.SelectedIndex];
-			double precoBebida = naoAlcoolicosPrecos[cmbAlcoolicos.SelectedIndex];
+			string nomeBebida = naoAlcoolicosNomes[cbmNao_alcoolicos.SelectedIndex];
+			double precoBebida = naoAlcoolicosPrecos[cbmNao_alcoolicos.SelectedIndex];
 			double valorItem = precoBebida * Convert.ToDouble(txtNao_alcoolicos.Text);
 
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
@@ -242,9 +241,10 @@ namespace DrinksBeer.Models
 			mConn.Open();
 
 			MySqlCommand command = new MySqlCommand("INSERT INTO ITEMPEDIDO (qtd, nomeProduto, valorProduto, subtotal, pedido, vendaLivre)"
-				+ "VALUES(" + txtNao_alcoolicos.Text + ",'" + nomeBebida + "'," + precoBebida + "," + valorItem + "," + telaCardapio.Pedido_data1 + ",'s')", mConn);
+				+ "VALUES(" + txtNao_alcoolicos.Text + ",'" + nomeBebida + "'," + precoBebida + "," + valorItem + "," + Capa.Pedido_data1 + ",'s')", mConn);
 
 			command.ExecuteNonQuery();
+			//verificaRegistros();
 			mostraCarrinho();
 			valorTotal();
 			mConn.Close();
@@ -256,15 +256,19 @@ namespace DrinksBeer.Models
 		private void cbmNao_alcoolicos_SelectedIndexChanged(object sender, EventArgs e)
 		{ }
 		private void labelTotal_Click(object sender, EventArgs e)
-		{
-
-		}
+		{ }
 		private void button4_Click(object sender, EventArgs e)
 		{
-			deletaGrid();
-
-			atualizaCarrinho();
-			somaValores();
+			if (Program.total == 0)
+			{
+				MessageBox.Show("Carrinho vazio");
+			}
+			else
+			{
+				deletaGrid();
+				atualizaCarrinho();
+				somaValores();
+			}
 		}
 	}
 }

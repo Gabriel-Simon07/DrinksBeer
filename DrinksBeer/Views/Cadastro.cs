@@ -42,8 +42,6 @@ namespace DrinksBeer.Views
 				}
 			}
 		}
-
-
 		private string nome;
 
 		public string Nome
@@ -111,41 +109,7 @@ namespace DrinksBeer.Views
 					throw new Exception("O número de telefone deve ter ao menos 4 dígitos e o máximo 8.");
 				}
 			}
-		}
-		private string nomeUsuario;
-
-		public string NomeUsuario
-		{
-			get { return nomeUsuario; }
-			set
-			{
-				if (nomeUsuario.Length >= 3)
-				{
-					nomeUsuario = value;
-				}
-				else
-				{
-					throw new Exception("O número de usuário deve ter ao menos 3 caracteres.");
-				}
-			}
-		}
-		private int idade;
-
-		public int Idade
-		{
-			get { return idade; }
-			set
-			{
-				if (value >= 12 || value < 120)
-				{
-					idade = value;
-				}
-				else
-				{
-					throw new Exception("A idade mínima para comprar é de 12 anos.");
-				}
-			}
-		}
+		}				
 		private int numeroCasa;
 
 		public int NumeroCasa
@@ -179,24 +143,7 @@ namespace DrinksBeer.Views
 					throw new Exception("O número CEP deve ser maior que zero.");
 				}
 			}
-		}
-		private string senha;
-
-		public string Senha
-		{
-			get { return senha; }
-			set
-			{
-				if (senha.Length >= 3)
-				{
-					senha = value;
-				}
-				else
-				{
-					throw new Exception("A senha deve ter no mínimo 3 caracteres.");
-				}
-			}
-		}
+		}		
 		private string cpf;
 
 		public string Cpf

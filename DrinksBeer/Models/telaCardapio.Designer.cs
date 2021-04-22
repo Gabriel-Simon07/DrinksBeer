@@ -367,7 +367,7 @@
 			// 
 			this.valorFinal.AutoSize = true;
 			this.valorFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.valorFinal.Location = new System.Drawing.Point(607, 308);
+			this.valorFinal.Location = new System.Drawing.Point(566, 312);
 			this.valorFinal.Name = "valorFinal";
 			this.valorFinal.Size = new System.Drawing.Size(133, 33);
 			this.valorFinal.TabIndex = 16;
@@ -377,7 +377,7 @@
 			// 
 			this.labelTotal.AutoSize = true;
 			this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelTotal.Location = new System.Drawing.Point(736, 308);
+			this.labelTotal.Location = new System.Drawing.Point(695, 312);
 			this.labelTotal.Name = "labelTotal";
 			this.labelTotal.Size = new System.Drawing.Size(55, 33);
 			this.labelTotal.TabIndex = 17;
