@@ -56,5 +56,36 @@ namespace DrinksBeer.Models
 
 			tblPedidos.DataMember = "ITEMPEDIDO";
 		}
+
+		private void btnBkpItempedido_Click(object sender, EventArgs e)
+		{
+			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
+			mConn.Open();
+			string hj = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
+
+			string sql = "CREATE TABLE ITEMPEDIDO" + hj + " AS SELECT * FROM ITEMPEDIDO";
+			MySqlCommand command = new MySqlCommand(sql, mConn);
+			int a = command.ExecuteNonQuery();
+
+			mConn.Close();
+			if (a > 0)
+				MessageBox.Show("backup criado com Sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		private void btnBkpPedido_Click(object sender, EventArgs e)
+		{
+			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
+			mConn.Open();
+			string hj = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
+
+			string sql = "CREATE TABLE PEDIDO" + hj + " AS SELECT * FROM PEDIDO";
+			MySqlCommand command = new MySqlCommand(sql, mConn);
+			int a = command.ExecuteNonQuery();
+
+			mConn.Close();
+			if (a > 0)
+				MessageBox.Show("backup criado com Sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+		}
 	}
 }

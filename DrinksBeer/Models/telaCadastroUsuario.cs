@@ -46,37 +46,24 @@ namespace DrinksBeer.Models
 				MessageBox.Show("É importante que todos os campos estejam preenchidos");
 				return;
 			}
-			MessageBox.Show($"Pedido feito com Sucesso!", "Informação", MessageBoxButtons.OK,
-			MessageBoxIcon.Information);
 
-			if (txtNome.Text.Length >= 3 && txtRua.Text.Length >= 3 && txtCidade.Text.Length >= 3 &&
-				txtTelefone.Text.Length >= 4 && txtTelefone.Text.Length <= 9 && int.Parse(txtNum_casa.Text) > 0
-				&& int.Parse(txtCep.Text) > 0 && int.Parse(txtCep.Text) < 10 && txtCpf.Text.Length == 11 && txtBairro.Text.Length > 5)
-			{
-				Visible = false;
-				new Capa().Show();
-			}
 			try
 			{
 				Cadastro cadastro = new Cadastro()
 				{
-					Nome = txtNome.Text,
-					Rua = txtRua.Text,
-					Cidade = txtCidade.Text,
-					Telefone = txtTelefone.Text,
-					NumeroCasa = int.Parse(txtNum_casa.Text),
-					Cep = int.Parse(txtCep.Text),
-					Cpf = txtCpf.Text,
-					Bairro = txtBairro.Text
+					Nome=txtNome.Text
 				};
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				MessageBox.Show(ex.Message);
+
+				throw;
 			}
+
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
 
 			mConn.Open();
+
 			if (rbEnvio_casa.Checked)
 			{
 				MySqlCommand command = new MySqlCommand("INSERT INTO PEDIDO(nomeCompleto," +
@@ -109,7 +96,12 @@ namespace DrinksBeer.Models
 				MySqlCommand command = new MySqlCommand($"UPDATE PEDIDO SET formaPagamento='{radioButton3.Text}', troco={txtTroco.Text} where numeroPedido={Capa.Pedido_data1}", mConn);//dinheiro
 				command.ExecuteNonQuery();
 			}
-			mConn.Close();						
+			mConn.Close();
+			MessageBox.Show($"Pedido feito com Sucesso!", "Informação", MessageBoxButtons.OK,
+			MessageBoxIcon.Information);
+
+			Visible = false;
+			new Capa().Show();
 		}
 		private void label6_Click(object sender, EventArgs e)
 		{ }

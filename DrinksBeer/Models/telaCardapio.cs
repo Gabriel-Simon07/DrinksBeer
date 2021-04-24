@@ -35,7 +35,7 @@ namespace DrinksBeer.Models
 		private DataSet mDataSet;
 		public static double soma = 0;
 		public static double total = 0;
-		public static double valorItem=0;
+		public static double valorItem = 0;
 
 		public telaCardapio()
 		{
@@ -48,7 +48,7 @@ namespace DrinksBeer.Models
 			//verificaRegistros();
 		}
 
-		
+
 
 		private void somaValores()
 		{
@@ -71,7 +71,15 @@ namespace DrinksBeer.Models
 			aReader = command.ExecuteReader();
 			if (aReader.Read())
 			{
-				Program.total += double.Parse(aReader.GetValue(0).ToString());
+				try
+				{
+					Program.total += double.Parse(aReader.GetValue(0).ToString());
+				}
+				catch (Exception)
+				{
+					Program.total = 0;
+				}
+
 			}
 
 			mConn.Close();
@@ -87,33 +95,52 @@ namespace DrinksBeer.Models
 		public static int valor = 0;
 		private void btnFinalizar_cardapio_Click(object sender, EventArgs e)
 		{
-			while (String.IsNullOrWhiteSpace(txtAlcoolicos.Text) || String.IsNullOrWhiteSpace(txtNao_alcoolicos.Text))
+			while (Program.total == 0)
 			{
-				MessageBox.Show("Fique a vontade para comprar o que quiser");
+				MessageBox.Show("Não há produtos no carrinho.");
 				return;
 			}
-			if (int.Parse(txtAlcoolicos.Text) >= 1 || int.Parse(txtNao_alcoolicos.Text) >= 1)
+			if (int.Parse(txtAlcoolicos.Text) >= 1)
 			{
+				try
+				{
+					Cadastro cadastro = new Cadastro()
+					{
+						QtdMinAlcool = int.Parse(txtAlcoolicos.Text),
+						QtdMinS_alcool = int.Parse(txtNao_alcoolicos.Text)
+					};
+				}
+				catch (Exception erro)
+				{
+					MessageBox.Show(erro.Message);
+				}
+				Visible = false;
+				new telaCadastroUsuario().Show();
+
+			}
+			else if (int.Parse(txtNao_alcoolicos.Text) >= 1)
+			{
+				try
+				{
+					Cadastro cadastro = new Cadastro()
+					{
+						QtdMinAlcool = int.Parse(txtAlcoolicos.Text),
+						QtdMinS_alcool = int.Parse(txtNao_alcoolicos.Text)
+					};
+				}
+				catch (Exception erro)
+				{
+					MessageBox.Show(erro.Message);
+				}
 				Visible = false;
 				new telaCadastroUsuario().Show();
 			}
-			try
-			{
-				Cadastro cadastro = new Cadastro()
-				{
-					QtdMinAlcool = int.Parse(txtAlcoolicos.Text),
-					QtdMinS_alcool = int.Parse(txtNao_alcoolicos.Text)
-				};
-			}
-			catch (Exception erro)
-			{
-				MessageBox.Show(erro.Message);
-			}
-
 		}
+	
 
 		private void telaCardapio_Load(object sender, EventArgs e)
-		{
+		{			
+			this.itempedidoTableAdapter2.Fill(this.sadrinksbeerDataSet6.itempedido);
 			this.itempedidoTableAdapter1.Fill(this.sadrinksbeerDataSet3.itempedido);			
 		}
 
@@ -134,16 +161,16 @@ namespace DrinksBeer.Models
 			tblCarinho.DataMember = "ITEMPEDIDO";
 		}
 
-		public static string nomeProduto = "";
+		public static string idProduto = "";
 		private void deletaGrid()
 		{
-			nomeProduto = tblCarinho.CurrentRow.Cells[0].Value.ToString();
+			idProduto = tblCarinho.CurrentRow.Cells[0].Value.ToString();
 
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
 
 			mConn.Open();
 
-			MySqlCommand command = new MySqlCommand($"DELETE FROM ITEMPEDIDO WHERE nomeProduto='" + nomeProduto + "' and pedido =  " + Capa.Pedido_data1, mConn);
+			MySqlCommand command = new MySqlCommand($"DELETE FROM ITEMPEDIDO WHERE id_itempedido=" + idProduto + " and pedido =  " + Capa.Pedido_data1, mConn);
 
 			command.ExecuteNonQuery();
 
@@ -161,7 +188,7 @@ namespace DrinksBeer.Models
 
 			mConn.Open();
 
-			mAdapter = new MySqlDataAdapter($"SELECT nomeProduto, valorProduto, subtotal,qtd FROM ITEMPEDIDO where pedido ='{Capa.Pedido_data1}'", mConn);
+			mAdapter = new MySqlDataAdapter($"SELECT id_itempedido, nomeProduto, valorProduto, subtotal,qtd FROM ITEMPEDIDO where pedido ='{Capa.Pedido_data1}'", mConn);
 
 			mAdapter.Fill(mDataSet, "ITEMPEDIDO");
 
@@ -269,6 +296,11 @@ namespace DrinksBeer.Models
 				atualizaCarrinho();
 				somaValores();
 			}
+		}
+
+		private void txtNao_alcoolicos_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

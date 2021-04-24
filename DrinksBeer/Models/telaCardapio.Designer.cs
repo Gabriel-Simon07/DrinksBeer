@@ -45,10 +45,13 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnCancelar_cardapio = new System.Windows.Forms.Button();
 			this.tblCarinho = new System.Windows.Forms.DataGridView();
+			this.id_itempedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.nomeProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.valorProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.qtdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.itempedidoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+			this.sadrinksbeerDataSet6 = new DrinksBeer.sadrinksbeerDataSet6();
 			this.itempedidoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.sadrinksbeerDataSet3 = new DrinksBeer.sadrinksbeerDataSet3();
 			this.itempedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -67,12 +70,15 @@
 			this.labelTotal = new System.Windows.Forms.Label();
 			this.button4 = new System.Windows.Forms.Button();
 			this.situacaoFrete = new System.Windows.Forms.Label();
+			this.itempedidoTableAdapter2 = new DrinksBeer.sadrinksbeerDataSet6TableAdapters.itempedidoTableAdapter();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bebidasBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.tblCarinho)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource)).BeginInit();
@@ -198,6 +204,7 @@
 			this.txtNao_alcoolicos.Name = "txtNao_alcoolicos";
 			this.txtNao_alcoolicos.Size = new System.Drawing.Size(41, 20);
 			this.txtNao_alcoolicos.TabIndex = 0;
+			this.txtNao_alcoolicos.TextChanged += new System.EventHandler(this.txtNao_alcoolicos_TextChanged);
 			// 
 			// bebidasBindingSource
 			// 
@@ -236,11 +243,12 @@
 			this.tblCarinho.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
 			this.tblCarinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.tblCarinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_itempedido,
             this.nomeProdutoDataGridViewTextBoxColumn,
             this.valorProdutoDataGridViewTextBoxColumn,
             this.qtdDataGridViewTextBoxColumn,
             this.subtotalDataGridViewTextBoxColumn});
-			this.tblCarinho.DataSource = this.itempedidoBindingSource1;
+			this.tblCarinho.DataSource = this.itempedidoBindingSource2;
 			this.tblCarinho.Location = new System.Drawing.Point(380, 91);
 			this.tblCarinho.MultiSelect = false;
 			this.tblCarinho.Name = "tblCarinho";
@@ -248,6 +256,13 @@
 			this.tblCarinho.Size = new System.Drawing.Size(408, 196);
 			this.tblCarinho.TabIndex = 10;
 			this.tblCarinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+			// 
+			// id_itempedido
+			// 
+			this.id_itempedido.DataPropertyName = "id_itempedido";
+			this.id_itempedido.HeaderText = "ID";
+			this.id_itempedido.Name = "id_itempedido";
+			this.id_itempedido.Visible = false;
 			// 
 			// nomeProdutoDataGridViewTextBoxColumn
 			// 
@@ -274,6 +289,16 @@
 			this.subtotalDataGridViewTextBoxColumn.HeaderText = "SUBTOTAL";
 			this.subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
 			this.subtotalDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// itempedidoBindingSource2
+			// 
+			this.itempedidoBindingSource2.DataMember = "itempedido";
+			this.itempedidoBindingSource2.DataSource = this.sadrinksbeerDataSet6;
+			// 
+			// sadrinksbeerDataSet6
+			// 
+			this.sadrinksbeerDataSet6.DataSetName = "sadrinksbeerDataSet6";
+			this.sadrinksbeerDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// itempedidoBindingSource1
 			// 
@@ -405,6 +430,10 @@
 			this.situacaoFrete.TabIndex = 19;
 			this.situacaoFrete.Text = "frete";
 			// 
+			// itempedidoTableAdapter2
+			// 
+			this.itempedidoTableAdapter2.ClearBeforeFill = true;
+			// 
 			// telaCardapio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,6 +462,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.bebidasBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.tblCarinho)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet6)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource)).EndInit();
@@ -476,13 +507,17 @@
 		private sadrinksbeerDataSet3 sadrinksbeerDataSet3;
 		private System.Windows.Forms.BindingSource itempedidoBindingSource1;
 		private sadrinksbeerDataSet3TableAdapters.itempedidoTableAdapter itempedidoTableAdapter1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn nomeProdutoDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn valorProdutoDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn qtdDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
 		private System.Windows.Forms.Label valorFinal;
 		private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Label situacaoFrete;
+		private sadrinksbeerDataSet6 sadrinksbeerDataSet6;
+		private System.Windows.Forms.BindingSource itempedidoBindingSource2;
+		private sadrinksbeerDataSet6TableAdapters.itempedidoTableAdapter itempedidoTableAdapter2;
+		private System.Windows.Forms.DataGridViewTextBoxColumn id_itempedido;
+		private System.Windows.Forms.DataGridViewTextBoxColumn nomeProdutoDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn valorProdutoDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn qtdDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
 	}
 }
