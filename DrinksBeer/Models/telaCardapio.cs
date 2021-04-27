@@ -100,44 +100,10 @@ namespace DrinksBeer.Models
 				MessageBox.Show("Não há produtos no carrinho.");
 				return;
 			}
-			if (int.Parse(txtAlcoolicos.Text) >= 1)
-			{
-				try
-				{
-					Cadastro cadastro = new Cadastro()
-					{
-						QtdMinAlcool = int.Parse(txtAlcoolicos.Text),
-						QtdMinS_alcool = int.Parse(txtNao_alcoolicos.Text)
-					};
-				}
-				catch (Exception erro)
-				{
-					MessageBox.Show(erro.Message);
-				}
 				Visible = false;
-				new telaCadastroUsuario().Show();
-
-			}
-			else if (int.Parse(txtNao_alcoolicos.Text) >= 1)
-			{
-				try
-				{
-					Cadastro cadastro = new Cadastro()
-					{
-						QtdMinAlcool = int.Parse(txtAlcoolicos.Text),
-						QtdMinS_alcool = int.Parse(txtNao_alcoolicos.Text)
-					};
-				}
-				catch (Exception erro)
-				{
-					MessageBox.Show(erro.Message);
-				}
-				Visible = false;
-				new telaCadastroUsuario().Show();
-			}
+				new telaCadastroUsuario().Show();			
 		}
 	
-
 		private void telaCardapio_Load(object sender, EventArgs e)
 		{			
 			this.itempedidoTableAdapter2.Fill(this.sadrinksbeerDataSet6.itempedido);
@@ -300,7 +266,20 @@ namespace DrinksBeer.Models
 
 		private void txtNao_alcoolicos_TextChanged(object sender, EventArgs e)
 		{
+			if (System.Text.RegularExpressions.Regex.IsMatch(txtNao_alcoolicos.Text, "[^1-99]"))
+			{
+				MessageBox.Show("Please enter only numbers.");
+				txtNao_alcoolicos.Text = txtNao_alcoolicos.Text.Remove(txtNao_alcoolicos.Text.Length - 1);
+			}
+		}
 
+		private void txtAlcoolicos_TextChanged(object sender, EventArgs e)
+		{
+			if (System.Text.RegularExpressions.Regex.IsMatch(txtAlcoolicos.Text, "[^1-99]"))
+			{
+				MessageBox.Show("Please enter only numbers.");
+				txtAlcoolicos.Text = txtAlcoolicos.Text.Remove(txtAlcoolicos.Text.Length - 1);
+			}
 		}
 	}
 }

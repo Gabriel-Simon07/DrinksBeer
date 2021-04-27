@@ -33,17 +33,22 @@
 			this.btnIniciar = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tblPedidos = new System.Windows.Forms.DataGridView();
-			this.pedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.itempedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.sadrinksbeerDataSet5 = new DrinksBeer.sadrinksbeerDataSet5();
 			this.label2 = new System.Windows.Forms.Label();
 			this.itempedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet5TableAdapters.itempedidoTableAdapter();
 			this.btnBkpPedido = new System.Windows.Forms.Button();
 			this.btnBkpItempedido = new System.Windows.Forms.Button();
+			this.sadrinksbeerDataSet7 = new DrinksBeer.sadrinksbeerDataSet7();
+			this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.pedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet7TableAdapters.pedidoTableAdapter();
+			this.numeroPedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.tblPedidos)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet7)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -73,7 +78,7 @@
 			this.pictureBox1.Image = global::DrinksBeer.Properties.Resources.LogoGole_drinks_1_;
 			this.pictureBox1.Location = new System.Drawing.Point(189, 97);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(136, 119);
+			this.pictureBox1.Size = new System.Drawing.Size(136, 125);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
@@ -84,21 +89,14 @@
 			this.tblPedidos.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
 			this.tblPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.tblPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pedidoDataGridViewTextBoxColumn});
-			this.tblPedidos.DataSource = this.itempedidoBindingSource;
+            this.numeroPedidoDataGridViewTextBoxColumn});
+			this.tblPedidos.DataSource = this.pedidoBindingSource;
 			this.tblPedidos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.tblPedidos.Location = new System.Drawing.Point(532, 97);
+			this.tblPedidos.Location = new System.Drawing.Point(531, 97);
 			this.tblPedidos.Name = "tblPedidos";
-			this.tblPedidos.Size = new System.Drawing.Size(226, 324);
+			this.tblPedidos.Size = new System.Drawing.Size(237, 324);
 			this.tblPedidos.TabIndex = 4;
 			this.tblPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-			// 
-			// pedidoDataGridViewTextBoxColumn
-			// 
-			this.pedidoDataGridViewTextBoxColumn.DataPropertyName = "pedido";
-			this.pedidoDataGridViewTextBoxColumn.HeaderText = "PEDIDOS";
-			this.pedidoDataGridViewTextBoxColumn.Name = "pedidoDataGridViewTextBoxColumn";
-			this.pedidoDataGridViewTextBoxColumn.Width = 183;
 			// 
 			// itempedidoBindingSource
 			// 
@@ -115,7 +113,7 @@
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label2.Location = new System.Drawing.Point(531, 57);
+			this.label2.Location = new System.Drawing.Point(534, 57);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(238, 37);
 			this.label2.TabIndex = 5;
@@ -148,6 +146,27 @@
 			this.btnBkpItempedido.UseVisualStyleBackColor = true;
 			this.btnBkpItempedido.Click += new System.EventHandler(this.btnBkpItempedido_Click);
 			// 
+			// sadrinksbeerDataSet7
+			// 
+			this.sadrinksbeerDataSet7.DataSetName = "sadrinksbeerDataSet7";
+			this.sadrinksbeerDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// pedidoBindingSource
+			// 
+			this.pedidoBindingSource.DataMember = "pedido";
+			this.pedidoBindingSource.DataSource = this.sadrinksbeerDataSet7;
+			// 
+			// pedidoTableAdapter
+			// 
+			this.pedidoTableAdapter.ClearBeforeFill = true;
+			// 
+			// numeroPedidoDataGridViewTextBoxColumn
+			// 
+			this.numeroPedidoDataGridViewTextBoxColumn.DataPropertyName = "numeroPedido";
+			this.numeroPedidoDataGridViewTextBoxColumn.HeaderText = "NÚMERO DO PEDIDO";
+			this.numeroPedidoDataGridViewTextBoxColumn.Name = "numeroPedidoDataGridViewTextBoxColumn";
+			this.numeroPedidoDataGridViewTextBoxColumn.Width = 193;
+			// 
 			// Capa
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +187,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.tblPedidos)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.itempedidoBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.sadrinksbeerDataSet7)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -183,8 +204,11 @@
 		private sadrinksbeerDataSet5 sadrinksbeerDataSet5;
 		private System.Windows.Forms.BindingSource itempedidoBindingSource;
 		private sadrinksbeerDataSet5TableAdapters.itempedidoTableAdapter itempedidoTableAdapter;
-		private System.Windows.Forms.DataGridViewTextBoxColumn pedidoDataGridViewTextBoxColumn;
 		private System.Windows.Forms.Button btnBkpPedido;
 		private System.Windows.Forms.Button btnBkpItempedido;
+		private sadrinksbeerDataSet7 sadrinksbeerDataSet7;
+		private System.Windows.Forms.BindingSource pedidoBindingSource;
+		private sadrinksbeerDataSet7TableAdapters.pedidoTableAdapter pedidoTableAdapter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn numeroPedidoDataGridViewTextBoxColumn;
 	}
 }

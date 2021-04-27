@@ -69,7 +69,6 @@
 			this.valorFinal = new System.Windows.Forms.Label();
 			this.labelTotal = new System.Windows.Forms.Label();
 			this.button4 = new System.Windows.Forms.Button();
-			this.situacaoFrete = new System.Windows.Forms.Label();
 			this.itempedidoTableAdapter2 = new DrinksBeer.sadrinksbeerDataSet6TableAdapters.itempedidoTableAdapter();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -134,6 +133,7 @@
 			this.txtAlcoolicos.Name = "txtAlcoolicos";
 			this.txtAlcoolicos.Size = new System.Drawing.Size(41, 20);
 			this.txtAlcoolicos.TabIndex = 6;
+			this.txtAlcoolicos.TextChanged += new System.EventHandler(this.txtAlcoolicos_TextChanged);
 			// 
 			// cbmNao_alcoolicos
 			// 
@@ -420,16 +420,6 @@
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.button4_Click);
 			// 
-			// situacaoFrete
-			// 
-			this.situacaoFrete.AutoSize = true;
-			this.situacaoFrete.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.situacaoFrete.Location = new System.Drawing.Point(389, 312);
-			this.situacaoFrete.Name = "situacaoFrete";
-			this.situacaoFrete.Size = new System.Drawing.Size(73, 33);
-			this.situacaoFrete.TabIndex = 19;
-			this.situacaoFrete.Text = "frete";
-			// 
 			// itempedidoTableAdapter2
 			// 
 			this.itempedidoTableAdapter2.ClearBeforeFill = true;
@@ -440,7 +430,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.situacaoFrete);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.labelTotal);
 			this.Controls.Add(this.valorFinal);
@@ -510,7 +499,6 @@
 		private System.Windows.Forms.Label valorFinal;
 		private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.Label situacaoFrete;
 		private sadrinksbeerDataSet6 sadrinksbeerDataSet6;
 		private System.Windows.Forms.BindingSource itempedidoBindingSource2;
 		private sadrinksbeerDataSet6TableAdapters.itempedidoTableAdapter itempedidoTableAdapter2;

@@ -52,8 +52,6 @@
 			this.txtBairro = new System.Windows.Forms.TextBox();
 			this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.label13 = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
 			this.rbRetirada_local = new System.Windows.Forms.RadioButton();
 			this.rbEnvio_casa = new System.Windows.Forms.RadioButton();
 			this.label16 = new System.Windows.Forms.Label();
@@ -277,42 +275,19 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.label13);
-			this.groupBox1.Controls.Add(this.label14);
 			this.groupBox1.Controls.Add(this.rbRetirada_local);
 			this.groupBox1.Controls.Add(this.rbEnvio_casa);
-			this.groupBox1.Location = new System.Drawing.Point(48, 53);
+			this.groupBox1.Location = new System.Drawing.Point(48, 72);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(278, 96);
+			this.groupBox1.Size = new System.Drawing.Size(278, 61);
 			this.groupBox1.TabIndex = 33;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
 			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.ForeColor = System.Drawing.Color.Red;
-			this.label13.Location = new System.Drawing.Point(21, 63);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(235, 13);
-			this.label13.TabIndex = 17;
-			this.label13.Text = "Entrega grátis para pedidos acima de R$ 100,00";
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.ForeColor = System.Drawing.Color.Red;
-			this.label14.Location = new System.Drawing.Point(72, 45);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(132, 13);
-			this.label14.TabIndex = 16;
-			this.label14.Text = "Taxa de entrega : R$ 9,00";
-			this.label14.Click += new System.EventHandler(this.label14_Click);
-			// 
 			// rbRetirada_local
 			// 
 			this.rbRetirada_local.AutoSize = true;
-			this.rbRetirada_local.Location = new System.Drawing.Point(135, 19);
+			this.rbRetirada_local.Location = new System.Drawing.Point(133, 24);
 			this.rbRetirada_local.Name = "rbRetirada_local";
 			this.rbRetirada_local.Size = new System.Drawing.Size(105, 17);
 			this.rbRetirada_local.TabIndex = 10;
@@ -323,7 +298,7 @@
 			// rbEnvio_casa
 			// 
 			this.rbEnvio_casa.AutoSize = true;
-			this.rbEnvio_casa.Location = new System.Drawing.Point(24, 18);
+			this.rbEnvio_casa.Location = new System.Drawing.Point(22, 23);
 			this.rbEnvio_casa.Name = "rbEnvio_casa";
 			this.rbEnvio_casa.Size = new System.Drawing.Size(105, 17);
 			this.rbEnvio_casa.TabIndex = 8;
@@ -535,8 +510,6 @@
 		private System.Windows.Forms.TextBox txtBairro;
 		private System.Windows.Forms.DateTimePicker dtpNascimento;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RadioButton rbRetirada_local;
         private System.Windows.Forms.RadioButton rbEnvio_casa;
         private System.Windows.Forms.Label label16;

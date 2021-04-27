@@ -47,18 +47,7 @@ namespace DrinksBeer.Models
 				return;
 			}
 
-			try
-			{
-				Cadastro cadastro = new Cadastro()
-				{
-					Nome=txtNome.Text
-				};
-			}
-			catch (Exception)
-			{
-
-				throw;
-			}
+			
 
 			mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
 
