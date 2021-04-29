@@ -59,8 +59,6 @@
 			this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.sadrinksbeerDataSet1 = new DrinksBeer.sadrinksbeerDataSet1();
 			this.btnFinalizar_cardapio = new System.Windows.Forms.Button();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
 			this.bebidasTableAdapter = new DrinksBeer.sadrinksbeerDataSetTableAdapters.bebidasTableAdapter();
 			this.label4 = new System.Windows.Forms.Label();
 			this.pedidoTableAdapter = new DrinksBeer.sadrinksbeerDataSet1TableAdapters.pedidoTableAdapter();
@@ -341,26 +339,6 @@
 			this.btnFinalizar_cardapio.UseVisualStyleBackColor = true;
 			this.btnFinalizar_cardapio.Click += new System.EventHandler(this.btnFinalizar_cardapio_Click);
 			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.ForeColor = System.Drawing.Color.Red;
-			this.label5.Location = new System.Drawing.Point(138, 305);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(132, 13);
-			this.label5.TabIndex = 14;
-			this.label5.Text = "Taxa de entrega : R$ 9,00";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.ForeColor = System.Drawing.Color.Red;
-			this.label6.Location = new System.Drawing.Point(88, 328);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(235, 13);
-			this.label6.TabIndex = 15;
-			this.label6.Text = "Entrega grátis para pedidos acima de R$ 100,00";
-			// 
 			// bebidasTableAdapter
 			// 
 			this.bebidasTableAdapter.ClearBeforeFill = true;
@@ -434,8 +412,6 @@
 			this.Controls.Add(this.labelTotal);
 			this.Controls.Add(this.valorFinal);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.label6);
-			this.Controls.Add(this.label5);
 			this.Controls.Add(this.btnFinalizar_cardapio);
 			this.Controls.Add(this.tblCarinho);
 			this.Controls.Add(this.btnCancelar_cardapio);
@@ -478,8 +454,6 @@
         private System.Windows.Forms.DataGridView tblCarinho;
         private System.Windows.Forms.Button btnFinalizar_cardapio;
         private System.Windows.Forms.Button btnAtualiza_lista;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAlcoolicos;
         private System.Windows.Forms.TextBox txtNao_alcoolicos;
         private sadrinksbeerDataSet sadrinksbeerDataSet;

@@ -45,11 +45,7 @@ namespace DrinksBeer.Models
 			mostraCarrinho();
 			atualizaCarrinho();
 			labelTotal.Text = Program.total.ToString();
-			//verificaRegistros();
 		}
-
-
-
 		private void somaValores()
 		{
 			Program.total = 0;
@@ -208,23 +204,15 @@ namespace DrinksBeer.Models
 				mConn.Close();
 			}
 		}
-		//private void verificaRegistros()
-		//{
-			
-		//	mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=testeBd");
-
-		//	mConn.Open();
-
-		//	MySqlCommand command = new MySqlCommand("UPDATE itempedido SET qtd= '" + txtAlcoolicos.Text + "',subtotal='" + valorItem + "' WHERE nomeProduto=" +txtAlcoolicos.Text, mConn);
-
-		//	command.ExecuteNonQuery();
-
-		//	mConn.Close();
-		//}
 		private void label4_Click_1(object sender, EventArgs e)
 		{ }
 		private void button3_Click(object sender, EventArgs e)
 		{
+			while (String.IsNullOrWhiteSpace(txtNao_alcoolicos.Text) || int.Parse(txtNao_alcoolicos.Text) <= 0)
+			{
+				MessageBox.Show("É importante que todos os campos estejam preenchidos");
+				return;
+			}
 			string nomeBebida = naoAlcoolicosNomes[cbmNao_alcoolicos.SelectedIndex];
 			double precoBebida = naoAlcoolicosPrecos[cbmNao_alcoolicos.SelectedIndex];
 			double valorItem = precoBebida * Convert.ToDouble(txtNao_alcoolicos.Text);
@@ -236,8 +224,7 @@ namespace DrinksBeer.Models
 			MySqlCommand command = new MySqlCommand("INSERT INTO ITEMPEDIDO (qtd, nomeProduto, valorProduto, subtotal, pedido, vendaLivre)"
 				+ "VALUES(" + txtNao_alcoolicos.Text + ",'" + nomeBebida + "'," + precoBebida + "," + valorItem + "," + Capa.Pedido_data1 + ",'s')", mConn);
 
-			command.ExecuteNonQuery();
-			//verificaRegistros();
+			command.ExecuteNonQuery();	
 			mostraCarrinho();
 			valorTotal();
 			mConn.Close();
@@ -263,21 +250,19 @@ namespace DrinksBeer.Models
 				somaValores();
 			}
 		}
-
 		private void txtNao_alcoolicos_TextChanged(object sender, EventArgs e)
 		{
 			if (System.Text.RegularExpressions.Regex.IsMatch(txtNao_alcoolicos.Text, "[^1-99]"))
 			{
-				MessageBox.Show("Please enter only numbers.");
+				MessageBox.Show("Caracter inválido");
 				txtNao_alcoolicos.Text = txtNao_alcoolicos.Text.Remove(txtNao_alcoolicos.Text.Length - 1);
 			}
 		}
-
 		private void txtAlcoolicos_TextChanged(object sender, EventArgs e)
 		{
 			if (System.Text.RegularExpressions.Regex.IsMatch(txtAlcoolicos.Text, "[^1-99]"))
 			{
-				MessageBox.Show("Please enter only numbers.");
+				MessageBox.Show("Caracter inválido");
 				txtAlcoolicos.Text = txtAlcoolicos.Text.Remove(txtAlcoolicos.Text.Length - 1);
 			}
 		}

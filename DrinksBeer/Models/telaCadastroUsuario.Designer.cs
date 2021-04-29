@@ -341,6 +341,7 @@
 			this.txtTroco.Name = "txtTroco";
 			this.txtTroco.Size = new System.Drawing.Size(58, 20);
 			this.txtTroco.TabIndex = 14;
+			this.txtTroco.TextChanged += new System.EventHandler(this.txtTroco_TextChanged);
 			// 
 			// label17
 			// 
@@ -395,6 +396,7 @@
 			this.radioButton3.TabStop = true;
 			this.radioButton3.Text = "Dinheiro";
 			this.radioButton3.UseVisualStyleBackColor = true;
+			this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
 			// 
 			// label21
 			// 
@@ -417,6 +419,7 @@
 			this.radioButton2.TabStop = true;
 			this.radioButton2.Text = "Crédito";
 			this.radioButton2.UseVisualStyleBackColor = true;
+			this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
 			// 
 			// radioButton1
 			// 
@@ -428,6 +431,7 @@
 			this.radioButton1.TabStop = true;
 			this.radioButton1.Text = "Débito";
 			this.radioButton1.UseVisualStyleBackColor = true;
+			this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
 			// 
 			// label15
 			// 

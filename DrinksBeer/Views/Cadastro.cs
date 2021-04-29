@@ -7,41 +7,7 @@ using System.Threading.Tasks;
 namespace DrinksBeer.Views
 {
 	public class Cadastro
-	{
-		private int qtdMinAlcool;
-
-		public int QtdMinAlcool
-		{
-			get { return qtdMinAlcool; }
-			set
-			{
-				if (value > 0)
-				{
-					qtdMinAlcool = value;
-				}
-				else
-				{
-					throw new Exception("A quantidade de bebidas alcoolicas não pode ser menor que 1");
-				}
-			}
-		}
-		private int qtdMinS_alcool;
-
-		public int QtdMinS_alcool
-		{
-			get { return qtdMinS_alcool; }
-			set
-			{
-				if (value > 0)
-				{
-					qtdMinS_alcool = value;
-				}
-				else
-				{
-					throw new Exception("A quantidade de bebidas não alcoolicas não pode ser menor que 1");
-				}
-			}
-		}
+	{		
 		private string nome;
 
 		public string Nome

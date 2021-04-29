@@ -25,7 +25,6 @@ namespace DrinksBeer.Models
 			InitializeComponent();
 			geraNumPedido();
 			geraNumDia();
-
 		}
 		private void geraNumPedido()
 		{
@@ -40,8 +39,7 @@ namespace DrinksBeer.Models
 			Grid_data1 = grid_data1.Year.ToString() + grid_data1.Month.ToString() + grid_data1.Day.ToString();
 		}
 		private void Capa_Load(object sender, EventArgs e)
-		{
-			// TODO: esta linha de código carrega dados na tabela 'sadrinksbeerDataSet7.pedido'. Você pode movê-la ou removê-la conforme necessário.
+		{			
 			this.pedidoTableAdapter.Fill(this.sadrinksbeerDataSet7.pedido);
 			mDataSet = new DataSet();
 
@@ -70,18 +68,7 @@ namespace DrinksBeer.Models
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			//mConn = new MySqlConnection("server=localhost;user id=root;sslmode=None;database=sadrinksbeer");
-
-			//mConn.Open();
-
-			//mAdapter = new MySqlDataAdapter($"select distinct pedido from " +
-			//	"sadrinksbeer.itempedido where pedido = " + Grid_data1 + "%;", mConn);
-
-			//mAdapter.Fill(mDataSet, "ITEMPEDIDO");
-
-			//tblPedidos.DataSource = mDataSet;
-
-			//tblPedidos.DataMember = "ITEMPEDIDO";
+			
 		}
 
 		private void btnBkpItempedido_Click(object sender, EventArgs e)
