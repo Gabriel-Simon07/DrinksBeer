@@ -338,6 +338,7 @@
 			// txtTroco
 			// 
 			this.txtTroco.Location = new System.Drawing.Point(234, 38);
+			this.txtTroco.MaxLength = 100000;
 			this.txtTroco.Name = "txtTroco";
 			this.txtTroco.Size = new System.Drawing.Size(58, 20);
 			this.txtTroco.TabIndex = 14;

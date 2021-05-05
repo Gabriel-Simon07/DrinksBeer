@@ -26,8 +26,8 @@ namespace DrinksBeer.Models
 		string[] naoAlcoolicosNomes = { "Coca-Cola 2L", "Fanta Laranja 2L", "Guaraná Kuat 2L", "Água Mineral 350ml", "Red Bull 250ml", "Água de Coco" };
 		double[] naoAlcoolicosPrecos = { 10.0, 10.0, 10.0, 4.0, 12.0, 6.0 };
 
-		public static string txEntrega = "Taxa de entrega";
-		public static double txEntregaValor = 9;
+		//public static string txEntrega = "Taxa de entrega";
+		//public static double txEntregaValor = 9;
 
 		private MySqlDataReader aReader;
 		private MySqlConnection mConn;

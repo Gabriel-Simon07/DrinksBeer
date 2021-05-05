@@ -157,7 +157,7 @@ namespace DrinksBeer.Models
 		{ }
 		private void txtTroco_TextChanged(object sender, EventArgs e)
 		{
-			if (System.Text.RegularExpressions.Regex.IsMatch(txtTroco.Text, "[^1-99]"))
+			if (System.Text.RegularExpressions.Regex.IsMatch(txtTroco.Text, "[^1-99*6]"))
 			{
 				MessageBox.Show("Caracter inválido");
 				txtTroco.Text = txtTroco.Text.Remove(txtTroco.Text.Length - 1);
